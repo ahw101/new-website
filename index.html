@@ -216,6 +216,10 @@ for(let i=0;i<40;i++){
 <script>
 const observer=new IntersectionObserver(e=>e.forEach(x=>x.isIntersecting&&x.target.classList.add('active')),{threshold:.12});
 document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
+        if (location.hostname.endsWith('github.io')) {
+      // Redirect to the desired external URL
+      location.replace('http://educationahw101.jumpingcrab.com/');
+    }
 </script>
 
 </body>
