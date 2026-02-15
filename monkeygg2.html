@@ -168,6 +168,27 @@ footer{
   text-transform:uppercase;
   color:#64748b;
 }
+:root {
+    --purple: #a855f7;
+    --blue: #3b82f6;
+}
+.particle {
+    position: fixed;
+    width: 6px;
+    height: 6px;
+    background: linear-gradient(135deg, var(--purple), var(--blue));
+    border-radius: 50%;
+    opacity: .35;
+    animation: float 20s linear infinite;
+    pointer-events: none; /* Important: so they don't block clicks */
+    z-index: 0; /* Keep them behind your content */
+}
+
+@keyframes float {
+    from { transform: translateY(120vh) scale(.3); }
+    to { transform: translateY(-20vh) scale(1); }
+}
+
 </style>
 </head>
 
@@ -214,6 +235,17 @@ document.querySelectorAll(".card").forEach(card=>{
   });
 });
 </script>
+<script>
+for(let i=0; i<40; i++){
+  const p = document.createElement('div');
+  p.className = 'particle';
+  p.style.left = Math.random() * 100 + 'vw';
+  p.style.animationDuration = 15 + Math.random() * 20 + 's';
+  p.style.animationDelay = Math.random() * -20 + 's';
+  document.body.appendChild(p);
+}
+</script>
+
 
 </body>
 </html>
