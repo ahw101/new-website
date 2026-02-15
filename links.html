@@ -170,6 +170,27 @@ footer{
   text-transform:uppercase;
   color:#64748b;
 }
+:root {
+    --purple: #a855f7;
+    --blue: #3b82f6;
+}
+.particle {
+    position: fixed;
+    width: 6px;
+    height: 6px;
+    background: linear-gradient(135deg, var(--purple), var(--blue));
+    border-radius: 50%;
+    opacity: .35;
+    animation: float 20s linear infinite;
+    pointer-events: none; /* Important: so they don't block clicks */
+    z-index: 0; /* Keep them behind your content */
+}
+
+@keyframes float {
+    from { transform: translateY(120vh) scale(.3); }
+    to { transform: translateY(-20vh) scale(1); }
+}
+
 </style>
 </head>
 
@@ -181,8 +202,8 @@ footer{
 <a class='back-btn' href='/'>← RETURN</a>
 
 <header>
-  <h1 class="text-4xl md:text-6xl font-black tracking-tight gradient-text uppercase">MonkeyGG2</h1>
-  <p class="text-slate-500 mt-4 tracking-wide">Not managed by me.</p>
+  <h1 class="text-4xl md:text-6xl font-black tracking-tight gradient-text uppercase">link List</h1>
+  <p class="text-slate-500 mt-4 tracking-wide">Managed by me.</p>
 </header>
 
 <main class="w-full max-w-3xl px-6 space-y-5 pb-28" id="links"></main>
@@ -193,7 +214,7 @@ ahw101
 
 <script>
 const links=[
-"https://ahw101unbl0cked.duckdns.org/","http://welovediidymen.eduinnova.cl/","https://unbl0ckedahw101.duckdns.org/","https://unbl0ckedahw101.vaconsulting.cl/","https://abyannnnnissssbetter.github.io/MonkeyGG2-v2/","https://iphone-18-pro-max-plus-s-extra.netlify.app/","https://monkeygg2.netlify.app"
+"https://ahw101unbl0cked.duckdns.org/","http://welovediidymen.eduinnova.cl/","https://unbl0ckedahw101.duckdns.org/","https://unbl0ckedahw101.vaconsulting.cl/"
 ];
 
 const c=document.getElementById("links");
@@ -216,6 +237,17 @@ document.querySelectorAll(".card").forEach(card=>{
   });
 });
 </script>
+<script>
+for(let i=0; i<40; i++){
+  const p = document.createElement('div');
+  p.className = 'particle';
+  p.style.left = Math.random() * 100 + 'vw';
+  p.style.animationDuration = 15 + Math.random() * 20 + 's';
+  p.style.animationDelay = Math.random() * -20 + 's';
+  document.body.appendChild(p);
+}
+</script>
+
 
 </body>
 </html>
