@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+<script id="usercentrics-cmp" src="https://app.usercentrics.eu/browser-ui/latest/loader.js" data-settings-id="hDIETk3lPhtr1g" async></script>
+
+  
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XHVZ8F3RHP"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-XHVZ8F3RHP');
+</script>
+
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Vantahub // Lunaar.org</title>
+
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&display=swap" rel="stylesheet">
+<script defer src="https://cloud.umami.is/script.js" data-website-id="08c66f86-eeed-4cda-9d98-d9ecb5756bf1"></script>
+
+<meta name="robots" content="noindex">
+<meta name="description" content="VantaHub - Best unblocked games.">
+<meta name="author" content="ahw101">
+<link rel="icon" href="favicon.png">
+
+<style>
+:root{
+  --purple:#a855f7;
+  --blue:#3b82f6;
+  --bg:#030305;
+}
+
+html{scroll-behavior:smooth}
+
+body{
+  font-family:'Plus Jakarta Sans',sans-serif;
+  background:
+    radial-gradient(900px 500px at 10% 10%,rgba(168,85,247,.14),transparent 40%),
+    radial-gradient(900px 500px at 90% 90%,rgba(59,130,246,.12),transparent 45%),
+    var(--bg);
+  color:#f8fafc;
+  min-height:100vh;
+  overflow-x:hidden;
+}
+
+/* ===== Floating ambient orbs ===== */
+.orb{
+  position:fixed;
+  width:420px;height:420px;
+  border-radius:50%;
+  filter:blur(140px);
+  opacity:.18;
+  pointer-events:none;
+  animation:float 26s ease-in-out infinite;
+}
+.orb.p{background:var(--purple);top:-10%;left:-10%}
+.orb.b{background:var(--blue);bottom:-10%;right:-10%;animation-delay:-13s}
+
+@keyframes float{
+  0%{transform:translate(0,0)}
+  50%{transform:translate(120px,80px)}
+  100%{transform:translate(0,0)}
+}
+
+/* ===== Back button ===== */
+.back-btn{
+  position:fixed;
+  top:1.8rem;left:1.8rem;
+  z-index:100;
+  display:flex;gap:8px;align-items:center;
+  padding:.65rem 1.4rem;
+  border-radius:999px;
+  font-size:.75rem;font-weight:800;
+  letter-spacing:.08em;
+  text-decoration:none;
+  color:#cbd5f5;
+  background:rgba(255,255,255,.04);
+  backdrop-filter:blur(14px);
+  border:1px solid rgba(255,255,255,.1);
+  transition:.4s cubic-bezier(.16,1,.3,1);
+}
+.back-btn:hover{
+  background:var(--purple);
+  color:#fff;
+  transform:translateX(-6px);
+  box-shadow:0 0 30px rgba(168,85,247,.6);
+}
+
+/* ===== Header ===== */
+.gradient-text{
+  background:linear-gradient(120deg,#fff,#a855f7,#3b82f6);
+  background-size:200% auto;
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+  animation:shine 6s linear infinite;
+}
+@keyframes shine{to{background-position:200% center}}
+
+header{
+  padding-top:7rem;
+  padding-bottom:4rem;
+  text-align:center;
+}
+
+/* ===== Cards ===== */
+.card{
+  position:relative;
+  background:rgba(255,255,255,.03);
+  backdrop-filter:blur(22px);
+  border:1px solid rgba(255,255,255,.08);
+  border-radius:28px;
+  padding:1.9rem;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  text-decoration:none;
+  color:inherit;
+  overflow:hidden;
+  opacity:0;
+  transform:translateY(28px) scale(.97);
+  animation:cardIn .7s cubic-bezier(.16,1,.3,1) forwards;
+}
+
+@keyframes cardIn{
+  to{opacity:1;transform:translateY(0) scale(1)}
+}
+
+/* hover glow */
+.card::before{
+  content:"";
+  position:absolute;
+  inset:-1px;
+  background:radial-gradient(600px circle at var(--mx,50%) var(--my,50%),rgba(168,85,247,.18),transparent 40%);
+  opacity:0;
+  transition:.4s ease;
+}
+.card:hover::before{opacity:1}
+
+.card:hover{
+  transform:scale(1.035);
+  border-color:rgba(168,85,247,.5);
+  box-shadow:0 30px 80px rgba(0,0,0,.6);
+}
+
+/* ===== Status pill ===== */
+.pill{
+  font-size:.6rem;
+  font-weight:900;
+  padding:.45rem .9rem;
+  border-radius:999px;
+  letter-spacing:.12em;
+  background:rgba(52,211,153,.12);
+  color:#34d399;
+  border:1px solid rgba(52,211,153,.25);
+}
+
+/* ===== Footer ===== */
+footer{
+  border-top:1px solid rgba(255,255,255,.06);
+  text-align:center;
+  padding:2.5rem 0;
+  font-size:.65rem;
+  letter-spacing:.4em;
+  text-transform:uppercase;
+  color:#64748b;
+}
+:root {
+    --purple: #a855f7;
+    --blue: #3b82f6;
+}
+.particle {
+    position: fixed;
+    width: 6px;
+    height: 6px;
+    background: linear-gradient(135deg, var(--purple), var(--blue));
+    border-radius: 50%;
+    opacity: .35;
+    animation: float 20s linear infinite;
+    pointer-events: none; /* Important: so they don't block clicks */
+    z-index: 0; /* Keep them behind your content */
+}
+
+@keyframes float {
+    from { transform: translateY(120vh) scale(.3); }
+    to { transform: translateY(-20vh) scale(1); }
+}
+
+</style>
+</head>
+
+<body class="flex flex-col items-center">
+
+<div class="orb p"></div>
+<div class="orb b"></div>
+
+<a href="index.html" class="back-btn">← RETURN</a>
+
+<header>
+  <h1 class="text-4xl md:text-6xl font-black tracking-tight gradient-text uppercase">Lunaar.org</h1>
+  <p class="text-slate-500 mt-4 tracking-wide">Not managed by me.</p>
+</header>
+
+<main class="w-full max-w-3xl px-6 space-y-5 pb-28" id="links"></main>
+
+<footer>
+ahw101
+</footer>
+
+<script>
+const links = [
+  "https://vyw.deez.nz",
+  "https://cnz.deez.nz",
+  "https://gsu.deez.nz",
+  "https://uyh.deez.nz",
+  "https://xxz.jakarta.st",
+  "https://vyw.jakarta.st",
+  "https://jmc.warga.ai",
+  "https://bps.warga.ai",
+  "https://yka.warga.ai",
+  "https://nbi.frogiesarcade.com",
+  "https://qmy.frogiesarcade.com",
+  "https://qnu.itsourceccs.com",
+  "https://tyg.itsourceccs.com",
+  "https://pff.itsourceccs.com",
+  "https://xkf.2hinformatika.hu",
+  "https://bcv.2hinformatika.hu",
+  "https://lej.2hinformatika.hu",
+  "https://oig.creatyc.com",
+  "https://ogs.creatyc.com",
+  "https://wtj.2hinformatika.hu",
+  "https://fjd.2hinformatika.hu",
+  "https://xag.creatyc.com",
+  "https://yga.warga.ai",
+  "https://lrs.frogiesarcade.com",
+  "https://rce.frogiesarcade.com",
+  "https://cdn.deez.nz",
+  "https://mez.deez.nz",
+  "https://yvx.deez.nz",
+  "https://rdx.deez.nz",
+  "https://qey.deez.nz",
+  "https://vsf.jakarta.st",
+  "https://mzi.jakarta.st",
+  "https://ktu.warga.ai",
+  "https://tutor.nett.to"
+];
+
+
+const c=document.getElementById("links");
+
+c.innerHTML=links.map((l,i)=>`
+<a href="https://${l}" class="card" style="animation-delay:${i*0.035}s">
+  <div class="flex flex-col">
+    <span class="font-bold text-lg">${l}</span>
+  </div>
+  <span class="pill">ACTIVE</span>
+</a>
+`).join("");
+
+/* mouse-follow glow */
+document.querySelectorAll(".card").forEach(card=>{
+  card.addEventListener("mousemove",e=>{
+    const r=card.getBoundingClientRect();
+    card.style.setProperty("--mx",`${e.clientX-r.left}px`);
+    card.style.setProperty("--my",`${e.clientY-r.top}px`);
+  });
+});
+</script>
+<script>
+for(let i=0; i<40; i++){
+  const p = document.createElement('div');
+  p.className = 'particle';
+  p.style.left = Math.random() * 100 + 'vw';
+  p.style.animationDuration = 15 + Math.random() * 20 + 's';
+  p.style.animationDelay = Math.random() * -20 + 's';
+  document.body.appendChild(p);
+}
+</script>
+
+
+</body>
+</html>
