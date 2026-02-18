@@ -254,7 +254,7 @@ const links = [
 const c=document.getElementById("links");
 
 c.innerHTML=links.map((l,i)=>`
-<a href="https://${l}" class="card" style="animation-delay:${i*0.035}s">
+<a href="${l}" class="card" style="animation-delay:${i*0.035}s">
   <div class="flex flex-col">
     <span class="font-bold text-lg">${l}</span>
   </div>
@@ -285,5 +285,6 @@ for(let i=0; i<40; i++){
 
 </body>
 </html>
+
 
 
