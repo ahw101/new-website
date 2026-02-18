@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VantaHub | Make Your Own Links</title>
+    <style>
+        :root {
+            --bg-color: #05010a;
+            --surface-color: #120621;
+            --primary-purple: #9d4edd;
+            --accent-purple: #c8b6ff;
+            --text-main: #e0e0e0;
+            --text-dim: #a0a0a0;
+            --border-color: #3c1e70;
+            --glow: rgba(157, 78, 221, 0.4);
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: radial-gradient(circle at top right, #1a0b2e, #05010a);
+            background-attachment: fixed;
+            color: var(--text-main);
+            line-height: 1.6;
+            margin: 0;
+            padding: 60px 20px;
+        }
+
+        /* --- BACK BUTTON --- */
+        .back-btn {
+            position: fixed;
+            top: 25px;
+            right: 25px;
+            padding: 10px 22px;
+            background: rgba(157, 78, 221, 0.15);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid var(--primary-purple);
+            border-radius: 8px;
+            color: #fff;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9em;
+            transition: all 0.3s ease;
+            z-index: 1000;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+        }
+
+        .back-btn:hover {
+            background: var(--primary-purple);
+            box-shadow: 0 0 20px var(--glow);
+            transform: translateY(-2px);
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: var(--surface-color);
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.8);
+            border: 1px solid var(--border-color);
+        }
+
+        h1 {
+            color: #fff;
+            font-size: 2.2rem;
+            margin-top: 0;
+            background: linear-gradient(to right, #fff, var(--primary-purple));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            border-bottom: 2px solid var(--primary-purple);
+            padding-bottom: 15px;
+        }
+
+        h2 { color: var(--accent-purple); margin-top: 40px; }
+        h3 { 
+            color: #fff; 
+            border-left: 5px solid var(--primary-purple); 
+            padding-left: 15px; 
+            margin-top: 40px;
+        }
+
+        a {
+            color: var(--accent-purple);
+            text-decoration: none;
+            transition: 0.2s;
+        }
+
+        a:hover {
+            color: #fff;
+            text-shadow: 0 0 8px var(--primary-purple);
+        }
+
+        blockquote {
+            background: rgba(157, 78, 221, 0.08);
+            border-left: 4px solid var(--primary-purple);
+            margin: 15px 0;
+            padding: 10px 20px;
+            border-radius: 0 8px 8px 0;
+            color: var(--text-dim);
+        }
+
+        code {
+            background: #000;
+            padding: 2px 6px;
+            border-radius: 4px;
+            color: #00ffcc;
+            font-family: monospace;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 25px 0;
+            background: rgba(0,0,0,0.2);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        th, td {
+            padding: 12px;
+            border: 1px solid var(--border-color);
+            text-align: left;
+        }
+
+        th { background: var(--primary-purple); color: white; }
+        tr:hover { background: rgba(157, 78, 221, 0.1); }
+
+        hr {
+            border: 0;
+            height: 1px;
+            background: var(--border-color);
+            margin: 40px 0;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 50px;
+            font-size: 0.8em;
+            color: var(--text-dim);
+        }
+    </style>
+</head>
+<body>
+
+    <a href="index.html" class="back-btn">← Back to Home</a>
+
+    <div class="container">
+        <h1># VantaHub &gt; Making your Own Links | updated Jan 26</h1>
+        <h2>## If you like these tutorials, make sure to star this repository!</h2>
+        
+        <p>This files includes a guide on how to make your own unblockers! You can do this with a free DNS provider or with a deployment service like Render or Vercel!</p>
+        
+        <p>
+            <strong>Exploit not working? Need help?</strong> Reach out via our official channels. 
+            With your feedback, I will make the instructions easier to understand!
+        </p>
+
+        <h2>Table of Contents:</h2>
+        <ul>
+            <li><a href="#making-links-via-freedns">Deploying via free DNS subdomain</a></li>
+            <li><a href="#make-links-with-fastly">Deploying via Fastly</a></li>
+            <li><strong>Make sure to have a Github account for the deployment options below!!</strong></li>
+            <li><a href="#make-links-with-vercel">Deploying via Vercel</a></li>
+        </ul>
+        <h4>(COMING SOON) Deploying with billigerhost and more!?!?!</h4>
+
+        <hr>
+
+        <h3 id="making-links-via-freedns">Making links via freeDNS</h3>
+        <ol>
+            <li>Go to <a href="https://freedns.afraid.org/">https://freedns.afraid.org/</a>, if it's blocked, try this on another device (you can't put the site through an unblocker, it won't work.)</li>
+            <li>This is probably your first time, so click "Sign Up for Free." If you already have an account, go to step 5.</li>
+            <li>Fill out all of the information in the boxes.
+                <blockquote>For your first and last name, use anything.</blockquote>
+                <blockquote>For the user ID, you can put anything, make sure it's unique.</blockquote>
+                <blockquote><strong>For your email, you could use a temporary email provider like <a href="https://temp-mail.org/">TempMail</a> or <a href="https://smailpro.com/">SmailPro</a> so you can create more links in the future, and its much safer.</strong></blockquote>
+            </li>
+            <li>Press sign-up after filling the boxes, and complete the email activation.
+                <blockquote>It might get bugged out and have an error. If so, just continue to the next step and sign in there.</blockquote>
+            </li>
+            <li>After making an account, now we are going to register the link. Go to this page in freeDNS: <a href="https://freedns.afraid.org/domain/registry">https://freedns.afraid.org/domain/registry</a>
+                <blockquote>Alternatively, press "Subdomains" on the left side of the page, then "Add subdomain", then on the "Domain" box click on the dropdown, then click "many, many more." After that click "Shared Domain Registry" on the first sentence. If you haven't already, sign in with your account.</blockquote>
+            </li>
+            <li>Click a domain link that you would like to use. (e.g. chickenkiller.com)
+                <blockquote>Make sure to select a domain that is unblocked for you. Domains that have a low popularity are probably unblocked.<br>Also make sure that the domain is public.</blockquote>
+            </li>
+            <li>In the configurations page, on the top make sure "A" record type is selected (it should be already).</li>
+            <li>Enter the name of the subdomain, it can be anything. (subdomainName.chosenDomain.com)</li>
+            <li>For the destination, it depends on what unblocker you want to use. You can try to googling it or joining discord servers, here is a helpful table I created:
+                <blockquote>Some may not work. Try another if it doesn't work.</blockquote>
+            </li>
+        </ol>
+
+        <p><strong>NOTE: HERE IS A FULL LIST of 60 UNBLOCKERS AND THEIR IPS: <a href="https://raw.githubusercontent.com/sebastian-92/byod-ip/refs/heads/master/byod.json">https://raw.githubusercontent.com/sebastian-92/byod-ip/refs/heads/master/byod.json</a></strong></p>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Unblocker</th>
+                    <th>Type</th>
+                    <th>IP Destination</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td>Abyss</td><td>Web browser</td><td><code>5.161.43.35</code></td></tr>
+                <tr><td>Astroid</td><td>Games, Unblocker, Emulators, Apps</td><td><code>152.53.53.8</code></td></tr>
+                <tr><td>Artclass</td><td>Unblocker, Games, Apps</td><td><code>198.251.90.4</code></td></tr>
+                <tr><td>Shadow</td><td>Web Browser</td><td><code>104.243.38.18</code></td></tr>
+                <tr><td>Kazwire</td><td>Proxy, games, apps</td><td><code>103.195.102.132</code></td></tr>
+                <tr><td>Plexile Arcade</td><td>Proxy, games, apps</td><td><code>104.243.41.121</code></td></tr>
+                <tr><td>Doge Unblocker</td><td>Proxy, games, apps</td><td><code>38.175.196.242</code></td></tr>
+                <tr><td>Interstellar</td><td>Proxy, games, apps</td><td><code>66.23.193.126</code></td></tr>
+                <tr><td>Rammerhead</td><td>Web Browser</td><td><code>108.181.32.77</code></td></tr>
+                <tr><td>Phantom Games</td><td>tons of games</td><td><code>109.122.46.55</code></td></tr>
+                <tr><td>arsenic</td><td>Proxy, Games</td><td><code>66.179.254.164</code></td></tr>
+                <tr><td>Emerald</td><td>Proxy games apps</td><td><code>66.23.198.136</code></td></tr>
+                <tr><td>Snorlax's Cave</td><td>proxy, games, apps</td><td><code>85.114.138.30</code></td></tr>
+                <tr><td>DayDreamX</td><td>Web Browser</td><td><code>104.243.45.193</code></td></tr>
+                <tr><td>Svzy Central</td><td>Proxy games apps</td><td><code>152.53.38.100</code></td></tr>
+                <tr><td>Space</td><td>Proxy games apps</td><td><code>104.243.38.145</code></td></tr>
+                <tr><td>Selenite</td><td>tons of games</td><td><code>65.109.112.222</code></td></tr>
+                <tr><td>Meximath</td><td>Proxy games apps tools</td><td><code>152.53.80.107</code></td></tr>
+                <tr><td colspan="3" style="text-align:center; background:rgba(157, 78, 221, 0.2);"><strong>NEW ONES (1/26)</strong></td></tr>
+                <tr><td>GalaxyV6</td><td>OS</td><td><code>51.222.141.2</code></td></tr>
+                <tr><td>Glint</td><td>Web browser</td><td><code>5.188.124.13</code></td></tr>
+                <tr><td>Bromine</td><td>proxy</td><td><code>129.153.136.235</code></td></tr>
+                <tr><td>Jordan's Math Work</td><td></td><td><code>37.27.88.135</code></td></tr>
+                <tr><td>Quesar</td><td></td><td><code>92.38.177.16</code></td></tr>
+                <tr><td>Duck Math</td><td>Games</td><td><code>198.251.83.251</code></td></tr>
+                <tr><td>Frogie's Arcade</td><td>Proxies games</td><td><code>69.164.251.210</code></td></tr>
+                <tr><td>Nowgg</td><td>Games</td><td><code>69.164.251.212</code></td></tr>
+                <tr><td>Eagler</td><td>Minecraft</td><td><code>152.53.90.17</code></td></tr>
+                <tr><td>Petezah</td><td>Games</td><td><code>51.222.141.36</code></td></tr>
+                <tr><td>UniUB</td><td>Proxy</td><td><code>152.53.36.82</code></td></tr>
+                <tr><td>Truffled</td><td>proxy, games, apps</td><td><code>205.209.125.106</code></td></tr>
+                <tr><td>Gn-math</td><td>games</td><td><code>107.174.34.44</code></td></tr>
+                <tr><td>Vapor</td><td>proxy games apps</td><td><code>159.195.59.55</code></td></tr>
+                <tr><td>CanLite</td><td>proxy games apps</td><td><code>104.36.85.249</code></td></tr>
+                <tr><td>Saturn Proxy</td><td>proxy games apps</td><td><code> 74.208.174.33</code></td></tr>
+                <tr><td>*May or may not work:* Tinf0il</td><td>Proxy, games, apsp</td><td><code>129.213.65.72</code></td></tr>
+                <tr>
+                    <td colspan="3">Other unblockers have specific tutorials in their discord servers. To find their discord server, go to the <a href="https://github.com/wea-f/ByePassHub/blob/main/mainUnblockers.md#caution-many-of-these-servers-will-ban-you-for-leaking-leaks-publicly-use-it-for-private-use-only">Proxy Discord Servers section</a>.</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <ol start="10">
+            <li>After putting the IP destination to your subdomain, press "save." Complete the captcha.</li>
+            <li>Wait a couple minutes for your site to register and go to the link you created (and make more if you want)!</li>
+        </ol>
+        <p>Tip: Here is a automatic freedns link maker: <a href="https://github.com/sebastian-92/domain92">https://github.com/sebastian-92/domain92</a></p>
+
+        <h3 id="make-links-with-fastly">Make links with Fastly</h3>
+        <ol>
+            <li>Go to <a href="https://fastly.com">https://fastly.com</a></li>
+            <li>Go to sign up for free</li>
+            <li>Create an account
+                <blockquote>For First name, Last name, company/roles, you can put anything, it shouldn’t matter<br>
+                <strong>For your email, you could use a temporary email provider like <a href="https://temp-mail.org/">TempMail</a> or <a href="https://smailpro.com/">SmailPro</a> so you can create more links in the future, and its much safer.</strong></strong></blockquote>
+            </li>
+            <li>Verify your account
+                <blockquote>If you are using temp mail, go to the site and an email should be there.</blockquote>
+            </li>
+            <li>Now log in to your account</li>
+            <li>Go to <a href="https://manage.fastly.com/home">https://manage.fastly.com/home</a></li>
+            <li>On the left hand side bar, click on CDN</li>
+            <li>On the right top corner, click “Create service”</li>
+            <li>For the service name, it doesn’t matter put anything.</li>
+            <li>For the domain, put some text followed by .global.ssl.fastly.net (unless you own another domain)
+                <blockquote>For example, proxysite.global.ssl.fastly.net (be creative, some domains might be taken already)</blockquote>
+            </li>
+            <li>For the origin (host), put a link to an unblocker site. It doesn’t have to be unblocked, but it has to be functional and reliable. <strong>Don't put a link with a path, like example.com/page.</strong>
+                <blockquote>For example, for Svzy Central I used <code>byod.szvy.website/</code><br>
+                If you want an astroid link, use <code>https://astroid.gg/</code><br>
+                For Rammerhead, use <code>https://browser.rammerhead.org/</code><br>
+                For Canlite, use <code>https://canlite.org/</code></blockquote>
+            </li>
+            <li>Then press Activate.</li>
+            <li>Ok, now press "Edit Configuration" and click "Clone Version 1 to edit"</li>
+            <li>On the left side, go to "Settings" and scroll down to "Fallback TTL"</li>
+            <li>Set the Fallback TTL to 0 seconds.</li>
+            <li>Now scroll to the top and press Activate.</li>
+            <li>Test your link now. After half a minute, it should work. IF NOT, follow the troubleshooting instructions.</li>
+            <li>HOWEVER, If you site says, <code>Error 503 Backend unavailable, connection timeout</code> that means the link you put it for the host does not work, so you should try another that is functional.</li>
+        </ol>
+
+        <p><strong>Troubleshooting with Fastly:</strong><br>
+        If your link doesn't work, try these steps.</p>
+        <ul>
+            <li>Go to edit configuration &gt; clone version, going to settings and setting the fallback ttl to 0. (you should already have done this)</li>
+            <li>Next, scroll down and make a cache setting and setting the ttl to 0 and stale ttl to 0. (name doesn't matter)</li>
+            <li>After making the changes, press activate.</li>
+            <li>Then, go to service summary and purge &gt; purge all.</li>
+        </ul>
+
+        <h3 id="make-links-with-vercel">Make links with Vercel</h3>
+        <p>If you try Koyeb, Koyeb has VERY STRICT terms and if you follow instructions too fast you get flagged. These instructions are for vercel anyways.</p>
+        <p>Link: https://vercel.com/new/clone?repositoryurl=<code>ReplaceThisWithRepositoryURL</code></p>
+        <ol>
+            <li>Replace the filler with an unblocker repository. For example, vercel.com/new/clone?repositoryurl=https://github.com/dogenetwork/v4 for deploying a doge unblocker link. Here's more (you can find your own too):
+                <blockquote>
+                    Interstellar: <code>https://github.com/InterstellarNetwork/Interstellar</code><br>
+                    Snorlax's Cave: <code>https://github.com/Snorlaxs-Cave/Snorlaxs-Cave-v2</code><br>
+                    Artclass: <code>https://github.com/art-class/v4</code><br>
+                    Utopia: <code>https://github.com/UtopiaUnblocker/Utopia</code><br>
+                    Abyss Web: <code>https://github.com/AbyssServices/Abyss-Web</code><br>
+                    Astroid: <code>https://github.com/VyperGroup/astroidv3</code><br>
+                    Shuttle: <code>https://github.com/shuttlenetwork/shuttle</code><br>
+                    Tinf0il: <code>https://github.com/Aluminum-Depot/Tinf0il-new</code><br>
+                    Shadow Tabbed: <code>https://github.com/xnightless/Shadownetwork</code>
+                </blockquote>
+            </li>
+            <li>Log in to your vercel account with Github, sign up if needed with Github (you will have to authorize).</li>
+            <li>In the "Create Git Repository," enter the repository name that will be linked to your unblocker, it can be anything.</li>
+            <li>Click "Create"</li>
+            <li>After a few moments, go to the link that you just created, which should be (repositoryName).vercel.app</li>
+        </ol>
+
+        <div class="footer">
+            &copy; 2026 VantaHub.
+        </div>
+    </div>
+
+</body>
+</html>
