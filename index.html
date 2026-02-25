@@ -1,26 +1,17 @@
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    
-<script id="usercentrics-cmp" src="https://app.usercentrics.eu/browser-ui/latest/loader.js" data-settings-id="hDIETk3lPhtr1g" async></script>
-<script defer src="https://cloud.umami.is/script.js" data-website-id="08c66f86-eeed-4cda-9d98-d9ecb5756bf1"></script>
-<script data-cfasync="false" src="https://cmp.gatekeeperconsent.com/min.js"></script>
-<script data-cfasync="false" src="https://the.gatekeeperconsent.com/cmp.min.js"></script>
-<script>
-    window.ezstandalone = window.ezstandalone || {};
-    ezstandalone.cmd = ezstandalone.cmd || [];
-</script>
-<script src="//ezoicanalytics.com/analytics.js"></script> 
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-XHVZ8F3RHP"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-XHVZ8F3RHP');
-</script>
+    <script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-cbid="3c0cfb5d-6177-48c8-b5e5-93b98ed31d55" data-blockingmode="auto" type="text/javascript"></script>
+    <script id="usercentrics-cmp" src="https://app.usercentrics.eu/browser-ui/latest/loader.js" data-settings-id="hDIETk3lPhtr1g" async></script>
+    <script defer src="https://cloud.umami.is/script.js" data-website-id="08c66f86-eeed-4cda-9d98-d9ecb5756bf1"></script>
+    <script>window.ezstandalone = window.ezstandalone || {}; ezstandalone.cmd = ezstandalone.cmd || [];</script>
+    <script src="//ezoicanalytics.com/analytics.js"></script> 
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XHVZ8F3RHP"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date()); gtag('config', 'G-XHVZ8F3RHP');
+    </script>
 
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -28,329 +19,424 @@
     <link rel="icon" href="favicon.png">
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800;900&display=swap" rel="stylesheet">
-<meta name="description" content="VantaHub: The best unbl0cked gαmes developed by ahw101. Enjoy 100s of free, unbl0cked links for school or work. Updated daily—play now!">
-
-    <meta name="author" content="ahw101">
+    <meta name="description" content="VantaHub: The best unbl0cked gαmes developed by ahw101. Enjoy 100s of free, unbl0cked links for school or work. Updated daily—play now!">
 
     <style>
         :root {
             --purple: #a855f7;
             --blue: #3b82f6;
             --pink: #ec4899;
-            --bg: #030305;
+            --bg: #050508;
+            --card-border: rgba(255, 255, 255, 0.08);
         }
 
-        html { scroll-behavior: smooth; }
+        /* Force custom cursor across everything */
+        * { cursor: none !important; } 
 
         body {
             font-family: 'Plus Jakarta Sans', sans-serif;
-            background:
-              radial-gradient(1200px 800px at 10% 10%, rgba(168,85,247,.15), transparent 40%),
-              radial-gradient(1000px 700px at 90% 80%, rgba(59,130,246,.15), transparent 45%),
-              radial-gradient(800px 600px at 50% 50%, rgba(236,72,153,.08), transparent 55%),
-              var(--bg);
+            background-color: var(--bg);
             color: #f8fafc;
             overflow-x: hidden;
         }
 
-        /* floating background particles */
-        .particle {
+        /* Sidebar Banner Containers */
+        .side-banner {
             position: fixed;
-            width: 6px;
-            height: 6px;
-            background: linear-gradient(135deg, var(--purple), var(--blue));
-            border-radius: 50%;
-            opacity: .35;
-            animation: float 20s linear infinite;
-            pointer-events: none;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 160px; /* Increased width */
+            height: 600px;
+            z-index: 40;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(255, 255, 255, 0.02); /* Slight visibility for layout */
+            border: 1px solid var(--card-border);
         }
 
-        @keyframes float {
-            from { transform: translateY(120vh) scale(.3); }
-            to { transform: translateY(-20vh) scale(1); }
+        .side-banner.left { left: 20px; }
+        .side-banner.right { right: 20px; }
+
+        /* Hide banners if screen is too narrow to prevent overlapping content */
+        @media (max-width: 1600px) {
+            .side-banner { display: none; }
         }
 
-        /* reveal */
+        .vanta-bg {
+            position: fixed;
+            inset: 0;
+            z-index: -2;
+            background: radial-gradient(circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(168, 85, 247, 0.15) 0%, transparent 40%),
+                        var(--bg);
+        }
+
+        .cyber-grid {
+            position: fixed;
+            inset: 0;
+            background-image: linear-gradient(var(--card-border) 1px, transparent 1px), linear-gradient(90deg, var(--card-border) 1px, transparent 1px);
+            background-size: 60px 60px;
+            mask-image: linear-gradient(to bottom, black 20%, transparent 80%);
+            transform: perspective(1000px) rotateX(60deg) scale(2);
+            transform-origin: top;
+            animation: grid-scroll 30s linear infinite;
+            z-index: -1;
+            opacity: 0.4;
+        }
+
+        @keyframes grid-scroll {
+            from { background-position: 0 0; }
+            to { background-position: 0 1000px; }
+        }
+
         .reveal {
             opacity: 0;
-            transform: translateY(40px) scale(.95);
-            transition: all 1s cubic-bezier(.16,1,.3,1);
+            transform: translateY(20px);
+            transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
         }
         .reveal.active {
             opacity: 1;
-            transform: translateY(0) scale(1);
+            transform: translateY(0);
         }
 
-        /* ultra glass */
-        .glass {
-            background: linear-gradient(180deg, rgba(255,255,255,.08), rgba(255,255,255,.02));
-            backdrop-filter: blur(22px);
-            border: 1px solid rgba(255,255,255,.12);
-            box-shadow: inset 0 1px 0 rgba(255,255,255,.15), 0 40px 90px rgba(0,0,0,.65);
-            transition: all .45s cubic-bezier(.16,1,.3,1);
+        .glass-card {
+            background: rgba(255, 255, 255, 0.02);
+            backdrop-filter: blur(12px);
+            border: 1px solid var(--card-border);
+            transition: transform 0.2s ease-out, border-color 0.4s ease, box-shadow 0.4s ease;
+            transform-style: preserve-3d;
+            will-change: transform;
         }
 
-        .glass:hover {
-            transform: translateY(-14px) scale(1.03);
-            border-color: rgba(168,85,247,.6);
-            box-shadow: 0 60px 140px rgba(168,85,247,.25);
+        .glass-card:hover {
+            border-color: rgba(168, 85, 247, 0.5);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+            background: rgba(255, 255, 255, 0.04);
         }
 
-        /* gradient text */
         .gradient-text {
-            background: linear-gradient(120deg, #6366f1, #a855f7, #ec4899);
-            background-size: 300% auto;
+            background: linear-gradient(90deg, #fff, #a855f7, #3b82f6, #fff);
+            background-size: 200% auto;
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            animation: shine 8s linear infinite;
+            animation: text-flow 4s linear infinite;
         }
 
-        @keyframes shine {
-            to { background-position: 300% center; }
+        @keyframes text-flow {
+            to { background-position: 200% center; }
         }
 
-        /* hero pulse */
-        .pulse-ring::before {
-            content: "";
-            position: absolute;
-            inset: -40px;
-            border-radius: 9999px;
-            background: radial-gradient(circle, rgba(168,85,247,.25), transparent 60%);
-            animation: pulse 4s ease-in-out infinite;
-            z-index: -1;
+        .cookie-banner {
+            position: fixed;
+            bottom: 24px;
+            right: 24px;
+            width: 340px;
+            background: #1a1a1a; 
+            color: #ffffff;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+            border: 1px solid #333;
+            font-family: 'Inter', sans-serif;
+            z-index: 9999;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
         }
 
-        @keyframes pulse {
-            0%,100% { opacity: .3; transform: scale(.9); }
-            50% { opacity: .7; transform: scale(1.05); }
+        .cookie-actions button {
+            flex: 1;
+            padding: 10px;
+            border-radius: 6px;
+            border: none;
+            font-size: 14px;
+            font-weight: 500;
+            transition: all 0.2s ease;
         }
 
-        /* buttons */
-        .btn {
-            position: relative;
-            overflow: hidden;
-        }
-        .btn::after {
-            content: "";
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(120deg, transparent, rgba(255,255,255,.4), transparent);
-            transform: translateX(-120%);
-            transition: transform .8s ease;
-        }
-        .btn:hover::after {
-            transform: translateX(120%);
+        .btn-accept { background: #ffffff; color: #000000; }
+        .btn-settings { background: transparent; color: #ffffff; border: 1px solid #444 !important; }
+
+        .hidden { display: none; }
+
+        #cursor {
+            width: 20px; height: 20px;
+            background: white;
+            border-radius: 50%;
+            position: fixed;
+            pointer-events: none;
+            z-index: 10000;
+            mix-blend-mode: difference;
+            transition: transform 0.15s ease-out;
+            left: -100px;
+            top: -100px;
         }
 
+        .faq-item { transition: all 0.3s ease; }
+        .faq-item:hover { background: rgba(255,255,255,0.05); }
     </style>
+    
     <script id="aclib" type="text/javascript" src="//acscdn.com/script/aclib.js"></script>
-<script type="text/javascript">
-    aclib.runInterstitial({
-        zoneId: '11000370',
-    });
-</script>
-<script type="text/javascript">
-    aclib.runInPagePush({
-        zoneId: '11001286',
-        maxAds: 2,
-    });
-</script>
-
-
-
 </head>
 <body>
 
-<!-- background particles -->
-<script>
-for(let i=0;i<40;i++){
-  const p=document.createElement('div');
-  p.className='particle';
-  p.style.left=Math.random()*100+'vw';
-  p.style.animationDuration=15+Math.random()*20+'s';
-  p.style.animationDelay=Math.random()*-20+'s';
-  document.body.appendChild(p);
-}
-</script>
+<div id="cursor"></div>
+<div class="vanta-bg"></div>
+<div class="cyber-grid"></div>
 
-<header class="sticky top-0 z-40 backdrop-blur-xl border-b border-white/5">
-  <div class="max-w-7xl mx-auto px-8 py-5">
-    <a href="#" class="flex items-center gap-3 w-fit group">
-      <!-- Favicon Image -->
-      <img src="favicon.png" alt="Logo" class="w-8 h-8 rounded-lg transition-transform group-hover:rotate-12">
-      <!-- Title -->
-      <h1 class="text-2xl font-black gradient-text">Vantahub</h1>
+<div class="side-banner left">
+    <script type="text/javascript">
+        aclib.runBanner({ zoneId: '11011402' });
+    </script>
+</div>
+
+<div class="side-banner right">
+    <script type="text/javascript">
+        aclib.runBanner({ zoneId: '11011402' });
+    </script>
+</div>
+
+<header class="sticky top-0 z-50 backdrop-blur-xl border-b border-white/5">
+  <div class="max-w-7xl mx-auto px-8 py-6 flex justify-between items-center">
+    <a href="#" class="flex items-center gap-4 group">
+      <img src="favicon.png" alt="Logo" class="w-10 h-10 rounded-xl transition-transform duration-700 group-hover:rotate-[360deg]">
+      <h1 class="text-3xl font-black gradient-text tracking-tighter">Vantahub</h1>
     </a>
   </div>
 </header>
 
-
 <main class="max-w-7xl mx-auto px-6">
 
-<section class="py-40 text-center reveal relative">
-  <div class="pulse-ring"></div>
-  <h2 class="text-7xl md:text-9xl font-black mb-10 tracking-tight">
+<section class="py-44 text-center reveal">
+  <span class="px-5 py-2 rounded-full border border-white/10 bg-white/5 text-xs font-bold uppercase tracking-widest text-purple-400 mb-8 inline-block">Start Now</span>
+  <h2 class="text-7xl md:text-9xl font-black mb-10 tracking-tight leading-none">
     Portal to<br><span class="gradient-text">Pure FUN</span>
   </h2>
-  <p class="text-xl text-slate-400 max-w-2xl mx-auto mb-16">Vantahub - Find your favourite links - Created by ahw101</p>
-    <p class="text-xl text-slate-400 max-w-2xl mx-auto mb-16">In Beta. More links coming soon!</p>  
+  <div class="space-y-3 mb-16">
+    <p class="text-xl text-slate-400 max-w-2xl mx-auto">Vantahub - Find your favourite links - Created by ahw101</p>
+    <p class="text-blue-400 font-semibold tracking-wide">In Beta. More links coming soon!</p>
+  </div>
+  
   <div class="flex justify-center gap-6 flex-wrap">
-    <a href="#gαmes" class="px-12 py-5 bg-white text-black rounded-full font-black btn">Explore</a>
-    <a class='px-12 py-5 glass rounded-full font-black btn' href='/makeyourownlinks'>Make Your Own Links</a>
-    <a href="https://github.com/ahw101" class="px-12 py-5 glass rounded-full font-black btn">GitHub</a>
-    <a class='px-12 py-5 glass rounded-full font-black btn' href='/links'>More Links</a>
+    <a href="#gαmes" class="px-12 py-5 bg-white text-black rounded-full font-black pulse-btn hover:scale-105 transition-transform">Explore</a>
+    <a class='px-12 py-5 glass-card rounded-full font-black' href='/makeyourownlinks.html'>Make Your Own Links</a>
+    <a href="https://github.com/ahw101" class="px-12 py-5 glass-card rounded-full font-black">GitHub</a>
+    <a class='px-12 py-5 glass-card rounded-full font-black' href='/links.html'>More Links</a>
   </div>
 </section>
 
 <section id="gαmes" class="py-32 reveal">
+    <script async="async" data-cfasync="false" src="https://pl28769747.effectivegatecpm.com/615e7b34eeebdb5713015d4e07e30b63/invoke.js"></script>
+    <div id="container-615e7b34eeebdb5713015d4e07e30b63"></div>
+    
+  <h3 class="text-center text-xs font-black uppercase tracking-[0.5em] text-slate-500 mb-20">Current Links</h3>
 
-<script async="async" data-cfasync="false" src="https://pl28769747.effectivegatecpm.com/615e7b34eeebdb5713015d4e07e30b63/invoke.js"></script>
-<div id="container-615e7b34eeebdb5713015d4e07e30b63"></div>
-  <h3 class="text-center text-sm font-black uppercase tracking-[0.4em] text-slate-400 mb-20">All Sites</h3>
-
-  <div class="grid grid-cols-1 gap-10 max-w-5xl mx-auto">
-
-    <a class='glass p-12 rounded-[3rem]' href='/monkeygg2'>
-      <h4 class="text-3xl font-black mb-2">🐒 MonkeyGG2</h4>
-      <p class="text-slate-400">Just a simple site only for gαmes.</p>
-    </a>
-     <a class='glass p-12 rounded-[3rem] border-orange-500/40' href='/frog'>
-      <h4 class="text-3xl font-black mb-2">🐸 FrogiesArcade</h4>
-      <p class="text-slate-400">Best site, inculding pr𝘖xy, gαmes, sleek UI and now.gg unbl0cked with no sign in and ads.</p>
-    </a>
-          <a class='glass p-12 rounded-[3rem]' href='/wordle'>
-      <h4 class="text-3xl font-black mb-2">🧩 Wordle</h4>
-      <p class="text-slate-400">Get 6 chances to guess any 5 letter word.</p>
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+    <a class='glass-card p-10 rounded-[2.5rem]' href='/monkeygg2.html'>
+      <h4 class="text-2xl font-black mb-2">🐒 MonkeyGG2</h4>
+      <p class="text-slate-400 text-sm">Just a simple site only for gαmes.</p>
     </a>
 
-    <a class='glass p-12 rounded-[3rem]' href='/lunaar'>
-      <h4 class="text-3xl font-black mb-2">🌙 Lunaar.org</h4>
-      <p class="text-slate-400">Includes pr𝘖xy and loads of gαmes.</p>
-    </a>
-    <a class='glass p-12 rounded-[3rem]' href='/dump'>
-      <h4 class="text-3xl font-black mb-2">🗑️ Dump</h4>
-      <p class="text-slate-400">List of unbl0cked gαme sites.</p>
-    </a>
-    <a class='glass p-12 rounded-[3rem]' href='/duck'>
-      <h4 class="text-3xl font-black mb-2">🦆 Duckmath</h4>
-      <p class="text-slate-400">100s and 100s of gαmes.</p>
-    </a>
-    <a class='glass p-12 rounded-[3rem]' href='/fern'>
-      <h4 class="text-3xl font-black mb-2">🌿 Fern</h4>
-      <p class="text-slate-400">Nice UI with pr𝘖xy and gαmes.</p>
-    </a>
-          <a class='glass p-12 rounded-[3rem]' href='/shadow'>
-      <h4 class="text-3xl font-black mb-2">⚫ Shadow</h4>
-      <p class="text-slate-400">Browser with pr𝘖xy.</p>
-    </a>
-                <a class='glass p-12 rounded-[3rem]' href='/daydream-x'>
-      <h4 class="text-3xl font-black mb-2">😴 DayDream X</h4>
-      <p class="text-slate-400">Browser with pr𝘖xy and gαmes. Gαmes hosted by other providers</p>
-    </a>
-    <a class='glass p-12 rounded-[3rem]' href='/nettleweb'>
-      <h4 class="text-3xl font-black mb-2">🌿 Nettleweb</h4>
-      <p class="text-slate-400">Includes Discord and gαmes.</p>
-    </a>
-    <a class='glass p-12 rounded-[3rem]' href='/velara'>
-      <h4 class="text-3xl font-black mb-2">🔗 Velara</h4>
-      <p class="text-slate-400">pr𝘖xy and gαmes with a nice UI.</p>
+    <a class='glass-card p-10 rounded-[2.5rem] border-orange-500/30' href='/frog.html'>
+      <h4 class="text-2xl font-black mb-2">🐸 FrogiesArcade</h4>
+      <p class="text-slate-400 text-sm">Best site, including pr𝘖xy, gαmes, sleek UI and now.gg unbl0cked.</p>
     </a>
 
-    <a href="https://ambient-ahw101.vercel.app/" class="glass p-12 rounded-[3rem]">
-      <h4 class="text-3xl font-black mb-2">🌐 Ambient pr𝘖xy</h4>
-      <p class="text-slate-400">pr𝘖xy and gαmes.</p>
+    <a class='glass-card p-10 rounded-[2.5rem]' href='/lunaar.html'>
+      <h4 class="text-2xl font-black mb-2">🌙 Lunaar.org</h4>
+      <p class="text-slate-400 text-sm">Includes pr𝘖xy and loads of gαmes.</p>
     </a>
 
+    <a class='glass-card p-10 rounded-[2.5rem]' href='/dump.html'>
+      <h4 class="text-2xl font-black mb-2">🗑️ Dump</h4>
+      <p class="text-slate-400 text-sm">List of unbl0cked gαme sites.</p>
+    </a>
+
+    <a class='glass-card p-10 rounded-[2.5rem]' href='/duck.html'>
+      <h4 class="text-2xl font-black mb-2">🦆 Duckmath</h4>
+      <p class="text-slate-400 text-sm">100s and 100s of gαmes.</p>
+    </a>
+
+    <a class='glass-card p-10 rounded-[2.5rem]' href='/fern.html'>
+      <h4 class="text-2xl font-black mb-2">🌿 Fern</h4>
+      <p class="text-slate-400 text-sm">Nice UI with pr𝘖xy and gαmes.</p>
+    </a>
+
+    <a class='glass-card p-10 rounded-[2.5rem]' href='/shadow.html'>
+      <h4 class="text-2xl font-black mb-2">⚫ Shadow</h4>
+      <p class="text-slate-400 text-sm">Browser with pr𝘖xy.</p>
+    </a>
+
+    <a class='glass-card p-10 rounded-[2.5rem]' href='/daydream-x.html'>
+      <h4 class="text-2xl font-black mb-2">😴 DayDream X</h4>
+      <p class="text-slate-400 text-sm">Browser with pr𝘖xy and gαmes.</p>
+    </a>
+
+    <a class='glass-card p-10 rounded-[2.5rem]' href='/nettleweb.html'>
+      <h4 class="text-2xl font-black mb-2">🌿 Nettleweb</h4>
+      <p class="text-slate-400 text-sm">Includes Discord and gαmes.</p>
+    </a>
+
+    <a class='glass-card p-10 rounded-[2.5rem]' href='/velara.html'>
+      <h4 class="text-2xl font-black mb-2">🔗 Velara</h4>
+      <p class="text-slate-400 text-sm">pr𝘖xy and gαmes with a nice UI.</p>
+    </a>
+
+    <a href="https://ambient-ahw101.vercel.app/" class="glass-card p-10 rounded-[2.5rem]">
+      <h4 class="text-2xl font-black mb-2">🌐 Ambient pr𝘖xy</h4>
+      <p class="text-slate-400 text-sm">pr𝘖xy and gαmes.</p>
+    </a>
   </div>
 </section>
+
+<section id="projects" class="py-32 reveal">
+  <h3 class="text-center text-xs font-black uppercase tracking-[0.5em] text-slate-500 mb-20">Projects</h3>
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+    <a class='glass-card p-10 rounded-[2.5rem]' href='/wordle.html'>
+      <h4 class="text-2xl font-black mb-2">🧩 Wordle Unlimited</h4>
+      <p class="text-slate-400 text-sm">Get 6 chances to guess any 5 letter word.</p>
+    </a>
+
+    <a class='glass-card p-10 rounded-[2.5rem]' href='/malware-gen.html'>
+      <h4 class="text-2xl font-black mb-2">⚠️ Malware Generator</h4>
+      <p class="text-slate-400 text-sm">Includes pr𝘖xy and loads of gαmes.</p>
+    </a>
+  </div>
+</section>
+
+<section class="py-32 reveal">
+  <div class="max-w-3xl mx-auto">
+    <h3 class="text-center text-xs font-black uppercase tracking-[0.5em] text-slate-500 mb-16">F&Q</h3>
+    <div class="space-y-4">
+      <div class="glass-card p-8 rounded-3xl cursor-pointer faq-item" onclick="toggleFaq(this)">
+        <div class="flex justify-between items-center">
+          <h4 class="text-lg font-black">When does this get updated?</h4>
+          <span class="icon transition-transform">+</span>
+        </div>
+        <div class="content hidden mt-4 text-slate-400 text-sm leading-relaxed">
+            Links get updated every weekend. Expect updates on weekdays too. I will eventually make a Google Form so you can report broken links.
+        </div>
+      </div>
+      
+      <div class="glass-card p-8 rounded-3xl cursor-pointer faq-item" onclick="toggleFaq(this)">
+        <div class="flex justify-between items-center">
+          <h4 class="text-lg font-black">Is Vantahub free?</h4>
+          <span class="icon transition-transform">+</span>
+        </div>
+        <div class="content hidden mt-4 text-slate-400 text-sm leading-relaxed">Vantahub is free. It is created by ahw101.</div>
+      </div>
+
+      <div class="glass-card p-8 rounded-3xl cursor-pointer faq-item" onclick="toggleFaq(this)">
+        <div class="flex justify-between items-center">
+          <h4 class="text-lg font-black">Why use Vantahub?</h4>
+          <span class="icon transition-transform">+</span>
+        </div>
+        <div class="content hidden mt-4 text-slate-400 text-sm leading-relaxed">Use Vantahub because we are the only site with tons of unblocked games sites at ease. You can use this to bypass filters at school and work.</div>
+      </div>
+
+      <div class="glass-card p-8 rounded-3xl cursor-pointer faq-item" onclick="toggleFaq(this)">
+        <div class="flex justify-between items-center">
+          <h4 class="text-lg font-black">Why are there adverts?</h4>
+          <span class="icon transition-transform">+</span>
+        </div>
+        <div class="content hidden mt-4 text-slate-400 text-sm leading-relaxed">We use adverts to monetize our website. Only on the homepage, so don't worry!</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="py-32 reveal">
+    <div class="max-w-4xl mx-auto text-center glass-card p-20 rounded-[4rem] relative overflow-hidden group">
+      <div class="absolute inset-0 bg-gradient-to-r from-purple-500/5 to-transparent"></div>
+      <p class="text-xs uppercase tracking-[0.4em] text-slate-500 mb-4">Developed By</p>
+      <h3 class="text-6xl font-black mb-8 gradient-text">ahw101</h3>
+      <a href="https://github.com/ahw101" class="inline-flex items-center gap-4 px-10 py-5 bg-white text-black rounded-full font-black hover:scale-105 transition-transform">
+        <span>GitHub Profile</span>
+      </a>
+    </div>
+</section>
+
+<footer class="py-20 text-center opacity-40">
+  <p class="text-[10px] font-mono uppercase tracking-[0.3em]">© 2026 Vantahub</p>
+</footer>
 
 </main>
-<section class="py-32 reveal">
-<div class="max-w-4xl mx-auto">
-<h3 class="text-center text-sm font-black uppercase tracking-[0.4em] text-slate-400 mb-16">FAQ</h3>
 
-<div class="space-y-6">
-
-<div class="glass p-8 rounded-3xl cursor-pointer faq-item">
-<div class="flex justify-between items-center">
-<h4 class="text-xl font-black">When does this get updated?</h4>
-<span class="text-slate-400">+</span>
-</div>
-<p class="text-slate-400 mt-4 hidden">Links get updated every weekend. Expect updates on weekdays too. I will eventually make a Google Form so you can report broken links.</p>
-</div>
-
-<div class="glass p-8 rounded-3xl cursor-pointer faq-item">
-<div class="flex justify-between items-center">
-<h4 class="text-xl font-black">Is Vantahub free?</h4>
-<span class="text-slate-400">+</span>
-</div>
-<p class="text-slate-400 mt-4 hidden">Vantahub is free. It is created by ahw101, and is community run.</p>
-</div>
-
-<div class="glass p-8 rounded-3xl cursor-pointer faq-item">
-<div class="flex justify-between items-center">
-<h4 class="text-xl font-black">Why use Vantahub?</h4>
-<span class="text-slate-400">+</span>
-</div>
-<p class="text-slate-400 mt-4 hidden">Use Vantahub becuase we are the only site with tons of unblocked games sites at ease. You can use this to bypass filters at school and work.</p>
-</div>
-
-
-<div class="glass p-8 rounded-3xl cursor-pointer faq-item">
-<div class="flex justify-between items-center">
-<h4 class="text-xl font-black">Why are there adverts?</h4>
-<span class="text-slate-400">+</span>
-</div>
-<p class="text-slate-400 mt-4 hidden">We use adverts to monetize our website. You are always free to use ad-blockers!</p>
-</div>
-</section>
-<section class="py-32 reveal">
-  <div class="max-w-4xl mx-auto text-center glass p-20 rounded-[4rem]">
-    <p class="text-sm uppercase tracking-[0.4em] text-slate-400 mb-4">Made by</p>
-    <h3 class="text-6xl font-black mb-8 gradient-text">ahw101</h3>
-    <a href="https://github.com/ahw101" class="inline-flex gap-4 px-10 py-5 glass rounded-full font-black btn">
-      <span>GitHub</span>
-      <span class="text-slate-400">github.com/ahw101</span>
-    </a>
-  </div>
-</section>
-
-<footer class="py-20 text-center opacity-50">
-  <p class="text-xs font-mono uppercase tracking-widest">© 2026 Vantahub, ahw101</p>
-</footer>
-<div>
-
+<div class="cookie-banner" id="cookieBanner">
+    <div class="cookie-content">
+        <img src="favicon.png" alt="Vantahub Logo" class="cookie-logo">
+        <div class="cookie-text">
+            <h4>Cookie Settings</h4>
+            <p>Vantahub uses cookies to enhance your experience. By continuing, you agree to our data policies.</p>
+        </div>
+    </div>
+    <div class="cookie-actions">
+        <button class="btn-accept" onclick="closeBanner()">Accept</button>
+        <button class="btn-settings">Settings</button>
+    </div>
 </div>
 
 <script>
-const observer=new IntersectionObserver(e=>e.forEach(x=>x.isIntersecting&&x.target.classList.add('active')),{threshold:.12});
-document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
-        if (location.hostname.endsWith('github.io')) {
-      // Redirect to the desired external URL
-      location.replace('https://unbl0ckedahw101.vaconsulting.cl/');
+    const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) entry.target.classList.add('active');
+        });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+    const cards = document.querySelectorAll('.glass-card');
+    cards.forEach(card => {
+        card.addEventListener('mousemove', e => {
+            const rect = card.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+            const sensitivity = 25; 
+            const rotateX = (rect.height / 2 - y) / sensitivity;
+            const rotateY = (x - rect.width / 2) / sensitivity;
+            card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.02, 1.02, 1.02)`;
+        });
+        card.addEventListener('mouseleave', () => {
+            card.style.transform = `perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)`;
+        });
+    });
+
+    const cursor = document.getElementById('cursor');
+    document.addEventListener('mousemove', e => {
+        cursor.style.left = e.clientX + 'px';
+        cursor.style.top = e.clientY + 'px';
+        document.body.style.setProperty('--mouse-x', (e.clientX / window.innerWidth * 100) + '%');
+        document.body.style.setProperty('--mouse-y', (e.clientY / window.innerHeight * 100) + '%');
+    });
+
+    // Handle cursor scale for all clickable elements including cookie banner
+    function setupCursor() {
+        const hoverables = document.querySelectorAll('a, button, .faq-item, .btn-accept, .btn-settings');
+        hoverables.forEach(el => {
+            el.addEventListener('mouseenter', () => cursor.style.transform = 'scale(3)');
+            el.addEventListener('mouseleave', () => cursor.style.transform = 'scale(1)');
+        });
+    }
+    setupCursor();
+
+    function toggleFaq(el) {
+        const content = el.querySelector('.content');
+        const icon = el.querySelector('.icon');
+        content.classList.toggle('hidden');
+        icon.style.transform = content.classList.contains('hidden') ? 'rotate(0deg)' : 'rotate(45deg)';
     }
 
-</script><script type="text/javascript">
-    aclib.runInterstitial({
-        zoneId: '11000370',
-    });
+    function closeBanner() {
+        document.getElementById('cookieBanner').classList.add('hidden');
+    }
+
+    if (location.hostname.endsWith('github.io')) {
+        location.replace('https://unbl0ckedahw101.vaconsulting.cl/');
+    }
 </script>
 
-<div>
-</div>
 <script type="text/javascript">
-    aclib.runInterstitial({
-        zoneId: '11000370',
-    });
+    aclib.runInterstitial({ zoneId: '11000370' });
 </script>
-<script>document.querySelectorAll('.faq-item').forEach(item=>{
-item.addEventListener('click',()=>{
-const p=item.querySelector('p');
-const icon=item.querySelector('span');
-p.classList.toggle('hidden');
-icon.textContent=p.classList.contains('hidden')?'+':'−';
-});
-});</script>
 
 </body>
 </html>
