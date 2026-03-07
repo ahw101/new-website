@@ -1,14 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <script id="usercentrics-cmp" src="https://app.usercentrics.eu/browser-ui/latest/loader.js" data-settings-id="hDIETk3lPhtr1g" async></script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
+    <link rel="preconnect" href="https://cdn.tailwindcss.com" crossorigin>
+    <link rel="dns-prefetch" href="https://cloud.umami.is">
+    <link rel="dns-prefetch" href="https://gizokraijaw.net">
+    <link rel="dns-prefetch" href="https://www.highperformanceformat.com">
+    <link rel="dns-prefetch" href="https://pl28769747.effectivegatecpm.com">
+
+    <link rel="preload" as="image" href="favicon.png">
+
     <script defer src="https://cloud.umami.is/script.js" data-website-id="08c66f86-eeed-4cda-9d98-d9ecb5756bf1"></script>
-<script>(function(s){s.dataset.zone='10682623',s.src='https://gizokraijaw.net/vignette.min.js'})([document.documentElement, document.body].filter(Boolean).pop().appendChild(document.createElement('script')))</script>
+    
     <script>
         window.ezstandalone = window.ezstandalone || {};
         ezstandalone.cmd = ezstandalone.cmd || [];
     </script>
-    <script src="//ezoicanalytics.com/analytics.js"></script> 
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-XHVZ8F3RHP"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
@@ -17,13 +27,21 @@
       gtag('config', 'G-XHVZ8F3RHP');
     </script>
 
+    <script>
+        if (localStorage.getItem('adsDisabled') === 'true') {
+            var style = document.createElement('style');
+            style.innerHTML = '.side-ad-left, .side-ad-right, .ad-banner-container { display: none !important; pointer-events: none; }';
+            document.head.appendChild(style);
+        }
+    </script>
+
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>VantaHub</title>
     <link rel="icon" href="favicon.png">
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800;900&display=swap" rel="stylesheet">
-    <meta name="description" content="VantaHub: The best unbl0cked gαmes developed by ahw101. Enjoy 100s of free, unbl0cked links for school or work. Updated daily—play now!">
+    <meta name="description" content="With education, your students won't miss out.">
     <meta name="author" content="ahw101">
 
     <style>
@@ -47,6 +65,48 @@
             overflow-x: hidden;
         }
 
+        /* Loading Screen */
+        #loader {
+            position: fixed;
+            inset: 0;
+            z-index: 99999;
+            background: #030305;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            transition: opacity 0.6s cubic-bezier(.16,1,.3,1);
+        }
+        #loader.fade-out {
+            opacity: 0;
+            pointer-events: none;
+        }
+        #loaderCircle {
+            transition: stroke-dashoffset 0.15s ease;
+        }
+        #loaderPercent {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 28px;
+            font-weight: 900;
+            margin-top: 24px;
+            background: linear-gradient(120deg, #6366f1, #a855f7, #ec4899);
+            background-size: 300% auto;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: shine 8s linear infinite;
+        }
+        #loaderLabel {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 14px;
+            font-weight: 600;
+            color: rgba(148,163,184,.6);
+            margin-top: 12px;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            text-align: center;
+            min-height: 20px;
+        }
+
         .particle {
             position: fixed;
             width: 6px;
@@ -57,6 +117,8 @@
             animation: float 20s linear infinite;
             pointer-events: none;
             z-index: -1;
+            contain: strict;
+            will-change: transform;
         }
 
         @keyframes float {
@@ -80,6 +142,7 @@
             border: 1px solid rgba(255,255,255,.12);
             box-shadow: inset 0 1px 0 rgba(255,255,255,.15), 0 40px 90px rgba(0,0,0,.65);
             transition: all .45s cubic-bezier(.16,1,.3,1);
+            contain: layout style;
         }
 
         .glass:hover {
@@ -139,47 +202,165 @@
         @media (max-width: 1400px) {
             .side-ad-left, .side-ad-right { display: none; }
         }
+
+        #cookieBanner {
+            transition: opacity 0.3s ease;
+        }
     </style>
     
-    <script id="aclib" type="text/javascript" src="//acscdn.com/script/aclib.js"></script>
-    <script type="text/javascript">
-        aclib.runInterstitial({ zoneId: '11000370' });
-    </script>
-    <script type="text/javascript">
-        aclib.runInPagePush({ zoneId: '11001286', maxAds: 2 });
-    </script>
 </head>
 <body>
 
+<div id="loader">
+    <svg width="130" height="130" viewBox="0 0 130 130">
+        <circle cx="65" cy="65" r="54" stroke="rgba(255,255,255,0.06)" stroke-width="8" fill="none"/>
+        <circle id="loaderCircleBg" cx="65" cy="65" r="54" stroke="rgba(255,255,255,0.04)" stroke-width="8" fill="none" stroke-dasharray="4 12" stroke-linecap="round"/>
+        <circle id="loaderCircle" cx="65" cy="65" r="54" stroke="url(#loaderGrad)" stroke-width="8" fill="none" stroke-linecap="round" stroke-dasharray="339.29" stroke-dashoffset="339.29" transform="rotate(-90 65 65)"/>
+        <defs>
+            <linearGradient id="loaderGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#6366f1"/>
+                <stop offset="50%" stop-color="#a855f7"/>
+                <stop offset="100%" stop-color="#ec4899"/>
+            </linearGradient>
+        </defs>
+    </svg>
+    <div id="loaderPercent">0%</div>
+    <div id="loaderLabel">Initializing...</div>
+    
+    <div id="slowLoadPrompt" class="hidden mt-8 text-center glass p-6 rounded-2xl border-purple-500/30 mx-4 max-w-sm">
+        <h3 class="font-bold text-lg mb-2 text-white">Taking a while?</h3>
+        <p class="text-sm text-slate-300 mb-4">You seem to be on a slow connection. Do you want to turn off ads to speed things up? You can change this at any time.</p>
+        <div class="flex gap-3 justify-center">
+            <button id="turnOffAdsBtn" class="flex-1 py-2 bg-purple-500 text-white text-sm font-bold rounded-xl hover:bg-purple-600 transition-colors">Turn Off Ads</button>
+            <button id="keepAdsBtn" class="flex-1 py-2 glass text-white text-sm font-bold rounded-xl hover:bg-white/10 transition-colors">Keep Ads</button>
+        </div>
+    </div>
+</div>
+
+<script>
+(function(){
+    var circle = document.getElementById('loaderCircle');
+    var percentEl = document.getElementById('loaderPercent');
+    var labelEl = document.getElementById('loaderLabel');
+    var loader = document.getElementById('loader');
+    var promptEl = document.getElementById('slowLoadPrompt');
+    var circumference = 2 * Math.PI * 54;
+    var progress = 0;
+    var loaded = false;
+
+    var slowLoadTimer = setTimeout(function() {
+        if (!loaded) promptEl.classList.remove('hidden');
+    }, 15000);
+
+    document.getElementById('turnOffAdsBtn').addEventListener('click', function() {
+        localStorage.setItem('adsDisabled', 'true');
+        promptEl.classList.add('hidden');
+        
+        // Hide currently loading ones immediately
+        var style = document.createElement('style');
+        style.innerHTML = '.side-ad-left, .side-ad-right, .ad-banner-container, iframe { display: none !important; pointer-events: none; }';
+        document.head.appendChild(style);
+        
+        progress = 100;
+        updateProgress(100);
+    });
+
+    document.getElementById('keepAdsBtn').addEventListener('click', function() {
+        localStorage.setItem('adsDisabled', 'false');
+        promptEl.classList.add('hidden');
+    });
+
+    function updateProgress(val) {
+        progress = Math.min(val, 100);
+        var offset = circumference - (progress / 100) * circumference;
+        circle.style.strokeDashoffset = offset;
+        percentEl.textContent = Math.round(progress) + '%';
+
+        if (progress < 25) labelEl.textContent = "Loading HTML & CSS...";
+        else if (progress < 50) labelEl.textContent = "Loading Tailwind CSS...";
+        else if (progress < 75) labelEl.textContent = "Loading Adsterra Ads...";
+        else if (progress < 95) labelEl.textContent = "Loading Monetag (Vignette)...";
+        else labelEl.textContent = "Finalizing Vantahub...";
+    }
+
+    var interval = setInterval(function() {
+        if (progress < 85 && !loaded) { progress += Math.random() * 6 + 1; updateProgress(progress); } 
+        else if (progress < 95 && !loaded) { progress += Math.random() * 0.5; updateProgress(progress); }
+    }, 120);
+
+    window.addEventListener('load', function() {
+        loaded = true;
+        clearTimeout(slowLoadTimer);
+        clearInterval(interval);
+        var finalInterval = setInterval(function() {
+            if (progress < 100) {
+                progress += 3; updateProgress(Math.min(progress, 100));
+            } else {
+                clearInterval(finalInterval);
+                setTimeout(function() {
+                    loader.classList.add('fade-out');
+                    setTimeout(function() {
+                        loader.style.display = 'none';
+                        if (localStorage.getItem('adsDisabled') !== 'true') loadVignetteAd();
+                    }, 600);
+                }, 250);
+            }
+        }, 25);
+    });
+
+    function loadVignetteAd() {
+        (function(s){
+            s.dataset.zone='10682623';
+            s.src='https://gizokraijaw.net/vignette.min.js';
+        })([document.documentElement, document.body].filter(Boolean).pop().appendChild(document.createElement('script')));
+    }
+})();
+</script>
+
 <div class="side-ad-left">
     <script>
-      atOptions = { 'key' : '10c042386b4b3f200d24d06119e29923', 'format' : 'iframe', 'height' : 600, 'width' : 160, 'params' : {} };
+    if (localStorage.getItem('adsDisabled') !== 'true') {
+        document.write('<scr' + 'ipt>atOptions = { "key" : "10c042386b4b3f200d24d06119e29923", "format" : "iframe", "height" : 600, "width" : 160, "params" : {} };</scr' + 'ipt>');
+        document.write('<scr' + 'ipt src="https://www.highperformanceformat.com/10c042386b4b3f200d24d06119e29923/invoke.js"></scr' + 'ipt>');
+    }
     </script>
-    <script src="https://www.highperformanceformat.com/10c042386b4b3f200d24d06119e29923/invoke.js"></script>
 </div>
 
 <div class="side-ad-right">
     <script>
-      atOptions = { 'key' : '10c042386b4b3f200d24d06119e29923', 'format' : 'iframe', 'height' : 600, 'width' : 160, 'params' : {} };
+    if (localStorage.getItem('adsDisabled') !== 'true') {
+        document.write('<scr' + 'ipt>atOptions = { "key" : "10c042386b4b3f200d24d06119e29923", "format" : "iframe", "height" : 600, "width" : 160, "params" : {} };</scr' + 'ipt>');
+        document.write('<scr' + 'ipt src="https://www.highperformanceformat.com/10c042386b4b3f200d24d06119e29923/invoke.js"></scr' + 'ipt>');
+    }
     </script>
-    <script src="https://www.highperformanceformat.com/10c042386b4b3f200d24d06119e29923/invoke.js"></script>
 </div>
 
 <script>
-for(let i=0;i<40;i++){
-  const p=document.createElement('div');
-  p.className='particle';
-  p.style.left=Math.random()*100+'vw';
-  p.style.animationDuration=15+Math.random()*20+'s';
-  p.style.animationDelay=Math.random()*-20+'s';
-  document.body.appendChild(p);
-}
+(function createParticles(){
+  var create = function(){
+    var frag = document.createDocumentFragment();
+    for(var i=0;i<40;i++){
+      var p=document.createElement('div');
+      p.className='particle';
+      p.style.left=Math.random()*100+'vw';
+      p.style.animationDuration=15+Math.random()*20+'s';
+      p.style.animationDelay=Math.random()*-20+'s';
+      frag.appendChild(p);
+    }
+    document.body.appendChild(frag);
+  };
+  if('requestIdleCallback' in window){
+    requestIdleCallback(create);
+  } else {
+    setTimeout(create, 200);
+  }
+})();
 </script>
 
 <header class="sticky top-0 z-40 backdrop-blur-xl border-b border-white/5">
   <div class="max-w-7xl mx-auto px-8 py-5">
     <a href="#" class="flex items-center gap-3 w-fit group">
-      <img src="favicon.png" alt="Logo" class="w-8 h-8 rounded-lg transition-transform group-hover:rotate-12">
+      <img src="favicon.png" alt="Logo" class="w-8 h-8 rounded-lg transition-transform group-hover:rotate-12" width="32" height="32" decoding="async">
       <h1 class="text-2xl font-black gradient-text">Vantahub</h1>
     </a>
   </div>
@@ -203,9 +384,17 @@ for(let i=0;i<40;i++){
 </section>
 
 <section id="gαmes" class="py-32 reveal">
-<script async="async" data-cfasync="false" src="https://pl28769747.effectivegatecpm.com/615e7b34eeebdb5713015d4e07e30b63/invoke.js"></script>
-<div id="container-615e7b34eeebdb5713015d4e07e30b63"></div>
-  <h3 class="text-center text-sm font-black uppercase tracking-[0.4em] text-slate-400 mb-20">All Sites</h3>
+  
+  <div class="ad-banner-container">
+    <script>
+    if (localStorage.getItem('adsDisabled') !== 'true') {
+        document.write('<scr' + 'ipt async="async" data-cfasync="false" src="https://pl28769747.effectivegatecpm.com/615e7b34eeebdb5713015d4e07e30b63/invoke.js"></scr' + 'ipt>');
+    }
+    </script>
+    <div id="container-615e7b34eeebdb5713015d4e07e30b63"></div>
+  </div>
+
+  <h3 class="text-center text-sm font-black uppercase tracking-[0.4em] text-slate-400 mb-20 mt-8">All Sites</h3>
 
   <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-6xl mx-auto">
     <a class='glass p-10 rounded-[2.5rem]' href='/monkeygg2'>
@@ -259,12 +448,29 @@ for(let i=0;i<40;i++){
   </div>
 </section>
 
-<section class="py-32 reveal">
+<div class="flex justify-center w-full py-8 overflow-hidden ad-banner-container">
+  <script>
+  if (localStorage.getItem('adsDisabled') !== 'true') {
+      document.write('<scr' + 'ipt>atOptions = { "key" : "c1eb76989faded9c6cec9318c718dee2", "format" : "iframe", "height" : 90, "width" : 728, "params" : {} };</scr' + 'ipt>');
+      document.write('<scr' + 'ipt src="https://www.highperformanceformat.com/c1eb76989faded9c6cec9318c718dee2/invoke.js"></scr' + 'ipt>');
+  }
+  </script>
+</div>
+
+<section class="py-16 reveal">
 <div class="max-w-4xl mx-auto">
 <h3 class="text-center text-sm font-black uppercase tracking-[0.4em] text-slate-400 mb-16">FAQ</h3>
 
-<div class="grid gap-4">
+<div class="flex justify-center mb-12 ad-banner-container">
+  <script>
+  if (localStorage.getItem('adsDisabled') !== 'true') {
+      document.write('<scr' + 'ipt async="async" data-cfasync="false" src="https://pl28769747.effectivegatecpm.com/615e7b34eeebdb5713015d4e07e30b63/invoke.js"></scr' + 'ipt>');
+  }
+  </script>
+  <div id="container-615e7b34eeebdb5713015d4e07e30b63-faq"></div>
+</div>
 
+<div class="grid gap-4">
 <div class="glass p-6 rounded-2xl cursor-pointer faq-item group">
 <div class="flex justify-between items-center"><h4 class="text-lg font-black group-hover:text-purple-400 transition-colors">When does this get updated?</h4><span class="text-slate-400">+</span></div>
 <p class="text-slate-400 mt-4 hidden">Links get updated every weekend. Expect updates on weekdays too. I will eventually make a Google Form so you can report broken links.</p>
@@ -282,7 +488,7 @@ for(let i=0;i<40;i++){
 
 <div class="glass p-6 rounded-2xl cursor-pointer faq-item group">
 <div class="flex justify-between items-center"><h4 class="text-lg font-black group-hover:text-purple-400 transition-colors">Why are there adverts?</h4><span class="text-slate-400">+</span></div>
-<p class="text-slate-400 mt-4 hidden">Adverts help cover hosting costs and domain fees. You are free to use ad-blockers if you prefer.</p>
+<p class="text-slate-400 mt-4 hidden">Adverts help cover hosting costs and domain fees. You are free to turn them off in your Ad Settings below, or use ad-blockers.</p>
 </div>
 
 <div class="glass p-6 rounded-2xl cursor-pointer faq-item group">
@@ -315,6 +521,131 @@ for(let i=0;i<40;i++){
 <p class="text-slate-400 mt-4 hidden">Absolutely! Check out the GitHub repository and feel free to suggest new links or improvements.</p>
 </div>
 
+<div class="glass p-6 rounded-2xl cursor-pointer faq-item group">
+<div class="flex justify-between items-center"><h4 class="text-lg font-black group-hover:text-purple-400 transition-colors">Can I use Vantahub on my phone?</h4><span class="text-slate-400">+</span></div>
+<p class="text-slate-400 mt-4 hidden">Yes! Vantahub is fully responsive and works great on mobile phones, tablets, and any modern browser.</p>
+</div>
+
+<div class="glass p-6 rounded-2xl cursor-pointer faq-item group">
+<div class="flex justify-between items-center"><h4 class="text-lg font-black group-hover:text-purple-400 transition-colors">How do I bookmark Vantahub?</h4><span class="text-slate-400">+</span></div>
+<p class="text-slate-400 mt-4 hidden">Press Ctrl+D (or Cmd+D on Mac) to bookmark. You can also add it to your home screen on mobile for quick access.</p>
+</div>
+
+<div class="glass p-6 rounded-2xl cursor-pointer faq-item group">
+<div class="flex justify-between items-center"><h4 class="text-lg font-black group-hover:text-purple-400 transition-colors">Is my browsing activity tracked?</h4><span class="text-slate-400">+</span></div>
+<p class="text-slate-400 mt-4 hidden">We only use basic analytics to see how many people visit. We don't track personal data, passwords, or browsing habits.</p>
+</div>
+
+<div class="glass p-6 rounded-2xl cursor-pointer faq-item group">
+<div class="flex justify-between items-center"><h4 class="text-lg font-black group-hover:text-purple-400 transition-colors">What browsers work best?</h4><span class="text-slate-400">+</span></div>
+<p class="text-slate-400 mt-4 hidden">Chrome, Edge, Brave, and Firefox all work perfectly. Safari works too but some features may load slightly slower.</p>
+</div>
+
+<div class="glass p-6 rounded-2xl cursor-pointer faq-item group">
+<div class="flex justify-between items-center"><h4 class="text-lg font-black group-hover:text-purple-400 transition-colors">Can I share Vantahub with friends?</h4><span class="text-slate-400">+</span></div>
+<p class="text-slate-400 mt-4 hidden">Of course! Share the link with anyone. The more people using Vantahub, the better it gets. Spread the word!</p>
+</div>
+
+<div class="glass p-6 rounded-2xl cursor-pointer faq-item group">
+<div class="flex justify-between items-center"><h4 class="text-lg font-black group-hover:text-purple-400 transition-colors">How do I report a broken link?</h4><span class="text-slate-400">+</span></div>
+<p class="text-slate-400 mt-4 hidden">Currently you can report issues on the GitHub repository. A dedicated Google Form for reporting broken links is coming soon!</p>
+</div>
+
+<div class="glass p-6 rounded-2xl cursor-pointer faq-item group">
+<div class="flex justify-between items-center"><h4 class="text-lg font-black group-hover:text-purple-400 transition-colors">Are there multiplayer games?</h4><span class="text-slate-400">+</span></div>
+<p class="text-slate-400 mt-4 hidden">Yes! Many of the linked sites include multiplayer games you can play with friends on the same network or online.</p>
+</div>
+
+<div class="glass p-6 rounded-2xl cursor-pointer faq-item group">
+<div class="flex justify-between items-center"><h4 class="text-lg font-black group-hover:text-purple-400 transition-colors">Does Vantahub work offline?</h4><span class="text-slate-400">+</span></div>
+<p class="text-slate-400 mt-4 hidden">No, Vantahub requires an internet connection since all games and proxies are hosted externally on other servers.</p>
+</div>
+
+<div class="glass p-6 rounded-2xl cursor-pointer faq-item group">
+<div class="flex justify-between items-center"><h4 class="text-lg font-black group-hover:text-purple-400 transition-colors">How do I hide Vantahub from my browsing history?</h4><span class="text-slate-400">+</span></div>
+<p class="text-slate-400 mt-4 hidden">Use incognito or private browsing mode (Ctrl+Shift+N in Chrome). This prevents the site from appearing in your history.</p>
+</div>
+
+<div class="glass p-6 rounded-2xl cursor-pointer faq-item group">
+<div class="flex justify-between items-center"><h4 class="text-lg font-black group-hover:text-purple-400 transition-colors">What if Vantahub gets blocked at my school?</h4><span class="text-slate-400">+</span></div>
+<p class="text-slate-400 mt-4 hidden">We regularly update our domains and mirrors. Check the GitHub for the latest working links, or ask in the community for alternatives.</p>
+</div>
+
+<div class="glass p-6 rounded-2xl cursor-pointer faq-item group">
+<div class="flex justify-between items-center"><h4 class="text-lg font-black group-hover:text-purple-400 transition-colors">Can I use a VPN with Vantahub?</h4><span class="text-slate-400">+</span></div>
+<p class="text-slate-400 mt-4 hidden">Yes, using a VPN alongside Vantahub can help bypass stricter network restrictions. Any free or paid VPN should work fine.</p>
+</div>
+
+<div class="glass p-6 rounded-2xl cursor-pointer faq-item group">
+<div class="flex justify-between items-center"><h4 class="text-lg font-black group-hover:text-purple-400 transition-colors">Is there a Vantahub Discord server?</h4><span class="text-slate-400">+</span></div>
+<p class="text-slate-400 mt-4 hidden">Not yet, but a Discord community is being planned! Follow ahw101 on GitHub to stay updated on the launch.</p>
+</div>
+
+<div class="glass p-6 rounded-2xl cursor-pointer faq-item group">
+<div class="flex justify-between items-center"><h4 class="text-lg font-black group-hover:text-purple-400 transition-colors">What makes Vantahub different from other unblocked sites?</h4><span class="text-slate-400">+</span></div>
+<p class="text-slate-400 mt-4 hidden">Vantahub curates only the best working links, keeps them updated weekly, has a clean modern UI, and is completely community-driven.</p>
+</div>
+
+<div class="glass p-6 rounded-2xl cursor-pointer faq-item group">
+<div class="flex justify-between items-center"><h4 class="text-lg font-black group-hover:text-purple-400 transition-colors">Can I use Vantahub on a school iPad?</h4><span class="text-slate-400">+</span></div>
+<p class="text-slate-400 mt-4 hidden">Yes, Vantahub works on iPads and iOS devices. Some managed iPads may have restrictions, but proxy sites can help bypass those.</p>
+</div>
+
+<div class="glass p-6 rounded-2xl cursor-pointer faq-item group">
+<div class="flex justify-between items-center"><h4 class="text-lg font-black group-hover:text-purple-400 transition-colors">Will there be a Vantahub mobile app?</h4><span class="text-slate-400">+</span></div>
+<p class="text-slate-400 mt-4 hidden">There are no plans for a native app right now, but you can add Vantahub to your home screen and it works just like an app!</p>
+</div>
+
+<div class="glass p-6 rounded-2xl cursor-pointer faq-item group">
+<div class="flex justify-between items-center"><h4 class="text-lg font-black group-hover:text-purple-400 transition-colors">How many games are available?</h4><span class="text-slate-400">+</span></div>
+<p class="text-slate-400 mt-4 hidden">Through all the linked sites combined, you have access to thousands of games across every genre — action, puzzle, sports, retro, and more.</p>
+</div>
+
+<div class="glass p-6 rounded-2xl cursor-pointer faq-item group">
+<div class="flex justify-between items-center"><h4 class="text-lg font-black group-hover:text-purple-400 transition-colors">Do I need to create an account?</h4><span class="text-slate-400">+</span></div>
+<p class="text-slate-400 mt-4 hidden">No account needed! Vantahub is completely open — just visit the site and start playing. No sign-ups, no emails, no hassle.</p>
+</div>
+
+<div class="glass p-6 rounded-2xl cursor-pointer faq-item group">
+<div class="flex justify-between items-center"><h4 class="text-lg font-black group-hover:text-purple-400 transition-colors">Can teachers see that I'm using Vantahub?</h4><span class="text-slate-400">+</span></div>
+<p class="text-slate-400 mt-4 hidden">If you're on a managed network, admins may see visited URLs. Use incognito mode and consider proxy sites for extra privacy.</p>
+</div>
+
+<div class="glass p-6 rounded-2xl cursor-pointer faq-item group">
+<div class="flex justify-between items-center"><h4 class="text-lg font-black group-hover:text-purple-400 transition-colors">What if a game is laggy?</h4><span class="text-slate-400">+</span></div>
+<p class="text-slate-400 mt-4 hidden">Try closing other tabs to free up memory. Some games are more demanding than others. Using Chrome or Edge usually gives the best performance.</p>
+</div>
+
+<div class="glass p-6 rounded-2xl cursor-pointer faq-item group">
+<div class="flex justify-between items-center"><h4 class="text-lg font-black group-hover:text-purple-400 transition-colors">Is Vantahub open source?</h4><span class="text-slate-400">+</span></div>
+<p class="text-slate-400 mt-4 hidden">Yes! The source code is available on GitHub under ahw101's profile. Feel free to fork it, contribute, or learn from the code.</p>
+</div>
+
+<div class="glass p-6 rounded-2xl cursor-pointer faq-item group">
+<div class="flex justify-between items-center"><h4 class="text-lg font-black group-hover:text-purple-400 transition-colors">What are the most popular games?</h4><span class="text-slate-400">+</span></div>
+<p class="text-slate-400 mt-4 hidden">Slope, Retro Bowl, 1v1.LOL, Shell Shockers, and Subway Surfers are some of the all-time favourites among our users.</p>
+</div>
+
+<div class="glass p-6 rounded-2xl cursor-pointer faq-item group">
+<div class="flex justify-between items-center"><h4 class="text-lg font-black group-hover:text-purple-400 transition-colors">Can I make my own link page?</h4><span class="text-slate-400">+</span></div>
+<p class="text-slate-400 mt-4 hidden">Yes! Click the "Make Your Own Links" button on the homepage to create your own custom link collection page.</p>
+</div>
+
+<div class="glass p-6 rounded-2xl cursor-pointer faq-item group">
+<div class="flex justify-between items-center"><h4 class="text-lg font-black group-hover:text-purple-400 transition-colors">Does Vantahub have a dark mode?</h4><span class="text-slate-400">+</span></div>
+<p class="text-slate-400 mt-4 hidden">Vantahub is already dark by default! The sleek dark theme is designed to be easy on the eyes and look great on any device.</p>
+</div>
+
+<div class="glass p-6 rounded-2xl cursor-pointer faq-item group">
+<div class="flex justify-between items-center"><h4 class="text-lg font-black group-hover:text-purple-400 transition-colors">Why do some sites have a proxy and others don't?</h4><span class="text-slate-400">+</span></div>
+<p class="text-slate-400 mt-4 hidden">Not all game sites include proxy functionality. Sites labelled with "proxy" have a built-in web proxy that lets you browse any URL through their server.</p>
+</div>
+
+<div class="glass p-6 rounded-2xl cursor-pointer faq-item group">
+<div class="flex justify-between items-center"><h4 class="text-lg font-black group-hover:text-purple-400 transition-colors">How do I fullscreen a game?</h4><span class="text-slate-400">+</span></div>
+<p class="text-slate-400 mt-4 hidden">Most games have a fullscreen button in-game. You can also press F11 on your keyboard to make your browser go fullscreen.</p>
+</div>
+
 </div>
 </div>
 </section>
@@ -330,11 +661,21 @@ for(let i=0;i<40;i++){
   </div>
 </section>
 
-<footer class="py-20 text-center opacity-50">
-  <p class="text-xs font-mono uppercase tracking-widest">© 2026 Vantahub, ahw101</p>
-</footer>
+<div class="flex justify-center w-full py-4 overflow-hidden ad-banner-container">
+  <script>
+  if (localStorage.getItem('adsDisabled') !== 'true') {
+      document.write('<scr' + 'ipt>atOptions = { "key" : "c1eb76989faded9c6cec9318c718dee2", "format" : "iframe", "height" : 90, "width" : 728, "params" : {} };</scr' + 'ipt>');
+      document.write('<scr' + 'ipt src="https://www.highperformanceformat.com/c1eb76989faded9c6cec9318c718dee2/invoke.js"></scr' + 'ipt>');
+  }
+  </script>
+</div>
 
 </main>
+
+<footer class="py-20 text-center opacity-50 flex flex-col items-center gap-2">
+  <p class="text-xs font-mono uppercase tracking-widest">© 2026 Vantahub, ahw101</p>
+  <button onclick="toggleAds()" class="text-xs font-mono uppercase tracking-widest underline hover:text-purple-400 transition-colors mt-2">Toggle Ad Settings</button>
+</footer>
 
 <div id="cookieBanner" class="fixed bottom-6 left-6 right-6 md:left-auto md:right-8 md:w-96 glass p-6 rounded-3xl z-[100] border-purple-500/30">
     <h5 class="font-bold text-lg mb-2">Cookies? 🍪</h5>
@@ -362,7 +703,6 @@ document.querySelectorAll('.faq-item').forEach(item=>{
         const icon=item.querySelector('span');
         const isOpen = !p.classList.contains('hidden');
         
-        // Close all others (optional, for cleaner look)
         document.querySelectorAll('.faq-item p').forEach(el => el.classList.add('hidden'));
         document.querySelectorAll('.faq-item span').forEach(el => el.textContent = '+');
 
@@ -380,10 +720,19 @@ function closeCookie() {
         document.getElementById('cookieBanner').style.display = 'none';
     }, 300);
 }
-</script>
 
-<script type="text/javascript">
-    aclib.runInterstitial({ zoneId: '11000370' });
+// Global Ad Toggle function for Footer
+function toggleAds() {
+    const current = localStorage.getItem('adsDisabled');
+    if (current === 'true') {
+        localStorage.setItem('adsDisabled', 'false');
+        alert("Ads have been turned back ON. Press OK to continue (btw thx!)");
+    } else {
+        localStorage.setItem('adsDisabled', 'true');
+        alert("Ads have been turned OFF. Press OK to continue");
+    }
+    location.reload();
+}
 </script>
 
 </body>
