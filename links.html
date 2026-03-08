@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,6 +13,14 @@
   gtag('js', new Date());
 
   gtag('config', 'G-XHVZ8F3RHP');
+</script>
+
+<script>
+    if (localStorage.getItem('adsDisabled') === 'true') {
+        var style = document.createElement('style');
+        style.innerHTML = '.side-ad-left, .side-ad-right { display: none !important; pointer-events: none; }';
+        document.head.appendChild(style);
+    }
 </script>
 
 <meta charset="UTF-8" />
@@ -49,6 +56,14 @@ body{
   overflow-x:hidden;
 }
 
+/* ===== SIDE ADS ===== */
+.side-ad-left { position: fixed; left: 20px; top: 120px; z-index: 40; }
+.side-ad-right { position: fixed; right: 20px; top: 120px; z-index: 40; }
+
+@media (max-width: 1450px) {
+    .side-ad-left, .side-ad-right { display: none; }
+}
+
 .orb{
   position:fixed;
   width:420px;height:420px;
@@ -56,12 +71,12 @@ body{
   filter:blur(140px);
   opacity:.18;
   pointer-events:none;
-  animation:float 26s ease-in-out infinite;
+  animation:float-orb 26s ease-in-out infinite;
 }
 .orb.p{background:var(--purple);top:-10%;left:-10%}
 .orb.b{background:var(--blue);bottom:-10%;right:-10%;animation-delay:-13s}
 
-@keyframes float{
+@keyframes float-orb{
   0%{transform:translate(0,0)}
   50%{transform:translate(120px,80px)}
   100%{transform:translate(0,0)}
@@ -169,10 +184,7 @@ footer{
   text-transform:uppercase;
   color:#64748b;
 }
-:root {
-    --purple: #a855f7;
-    --blue: #3b82f6;
-}
+
 .particle {
     position: fixed;
     width: 6px;
@@ -180,12 +192,12 @@ footer{
     background: linear-gradient(135deg, var(--purple), var(--blue));
     border-radius: 50%;
     opacity: .35;
-    animation: float 20s linear infinite;
-    pointer-events: none; /* Important: so they don't block clicks */
-    z-index: 0; /* Keep them behind your content */
+    animation: float-particle 20s linear infinite;
+    pointer-events: none;
+    z-index: 0;
 }
 
-@keyframes float {
+@keyframes float-particle {
     from { transform: translateY(120vh) scale(.3); }
     to { transform: translateY(-20vh) scale(1); }
 }
@@ -194,6 +206,24 @@ footer{
 </head>
 
 <body class="flex flex-col items-center">
+
+<div class="side-ad-left">
+    <script>
+    if (localStorage.getItem('adsDisabled') !== 'true') {
+        document.write('<scr' + 'ipt>atOptions = { "key" : "10c042386b4b3f200d24d06119e29923", "format" : "iframe", "height" : 600, "width" : 160, "params" : {} };</scr' + 'ipt>');
+        document.write('<scr' + 'ipt src="https://www.highperformanceformat.com/10c042386b4b3f200d24d06119e29923/invoke.js"></scr' + 'ipt>');
+    }
+    </script>
+</div>
+
+<div class="side-ad-right">
+    <script>
+    if (localStorage.getItem('adsDisabled') !== 'true') {
+        document.write('<scr' + 'ipt>atOptions = { "key" : "10c042386b4b3f200d24d06119e29923", "format" : "iframe", "height" : 600, "width" : 160, "params" : {} };</scr' + 'ipt>');
+        document.write('<scr' + 'ipt src="https://www.highperformanceformat.com/10c042386b4b3f200d24d06119e29923/invoke.js"></scr' + 'ipt>');
+    }
+    </script>
+</div>
 
 <div class="orb p"></div>
 <div class="orb b"></div>
@@ -213,7 +243,13 @@ ahw101
 
 <script>
 const links=[
-"https://ahw101unbl0cked.duckdns.org/","https://welovediidymen.eduinnova.cl/","https://unbl0ckedahw101.duckdns.org/","https://unbl0ckedahw101.vaconsulting.cl/","https://unbl0ckedahw101.seatecno.com.br/","http://ahw101unbl0cked.s4r4.com","https://rawcdn.githack.com/ahw101/new-website/09cf984afb0d0670890a4154e23e87cf57d61f44/index.html"
+"https://ahw101unbl0cked.duckdns.org/",
+"https://welovediidymen.eduinnova.cl/",
+"https://unbl0ckedahw101.duckdns.org/",
+"https://unbl0ckedahw101.vaconsulting.cl/",
+"https://unbl0ckedahw101.seatecno.com.br/",
+"http://ahw101unbl0cked.s4r4.com",
+"https://online-teahcer.infinitygroup.com.ar/"
 ];
 
 const c=document.getElementById("links");
