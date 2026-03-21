@@ -4,14 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>VantaHub | Make Your Own Links</title>
-    
-    <script>
-        if (localStorage.getItem('adsDisabled') === 'true') {
-            var style = document.createElement('style');
-            style.innerHTML = '.side-ad-left, .side-ad-right { display: none !important; pointer-events: none; }';
-            document.head.appendChild(style);
-        }
-    </script>
+
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9904590475432919"
+     crossorigin="anonymous"></script>
 
     <style>
         :root {
@@ -33,15 +28,6 @@
             line-height: 1.6;
             margin: 0;
             padding: 60px 20px;
-        }
-
-        /* --- SIDE ADS --- */
-        .side-ad-left { position: fixed; left: 20px; top: 100px; z-index: 50; }
-        .side-ad-right { position: fixed; right: 20px; top: 100px; z-index: 50; }
-
-        /* Hide ads if screen is too small to fit the container + ads */
-        @media (max-width: 1450px) {
-            .side-ad-left, .side-ad-right { display: none; }
         }
 
         /* --- BACK BUTTON --- */
@@ -164,28 +150,10 @@
 </head>
 <body>
 
-    <div class="side-ad-left">
-        <script>
-        if (localStorage.getItem('adsDisabled') !== 'true') {
-            document.write('<scr' + 'ipt>atOptions = { "key" : "10c042386b4b3f200d24d06119e29923", "format" : "iframe", "height" : 600, "width" : 160, "params" : {} };</scr' + 'ipt>');
-            document.write('<scr' + 'ipt src="https://www.highperformanceformat.com/10c042386b4b3f200d24d06119e29923/invoke.js"></scr' + 'ipt>');
-        }
-        </script>
-    </div>
-
-    <div class="side-ad-right">
-        <script>
-        if (localStorage.getItem('adsDisabled') !== 'true') {
-            document.write('<scr' + 'ipt>atOptions = { "key" : "10c042386b4b3f200d24d06119e29923", "format" : "iframe", "height" : 600, "width" : 160, "params" : {} };</scr' + 'ipt>');
-            document.write('<scr' + 'ipt src="https://www.highperformanceformat.com/10c042386b4b3f200d24d06119e29923/invoke.js"></scr' + 'ipt>');
-        }
-        </script>
-    </div>
-
     <a href="index.html" class="back-btn">← Back to Home</a>
 
     <div class="container">
-        <h1># VantaHub &gt; Making your Own Links | updated Jan 26</h1>
+        <h1># VantaHub > Making your Own Links | updated Jan 26</h1>
         <h2>## If you like these tutorials, make sure to star this repository!</h2>
         
         <p>This files includes a guide on how to make your own unblockers! You can do this with a free DNS provider or with a deployment service like Render or Vercel!</p>
@@ -295,7 +263,7 @@
             <li>Go to <a href="https://fastly.com">https://fastly.com</a></li>
             <li>Go to sign up for free</li>
             <li>Create an account
-                <blockquote>For First name, Last name, company/roles, you can put anything, it shouldn’t matter<br>
+                <blockquote>For First name, Last name, company/roles, you can put anything, it shouldn't matter<br>
                 <strong>For your email, you could use a temporary email provider like <a href="https://temp-mail.org/">TempMail</a> or <a href="https://smailpro.com/">SmailPro</a> so you can create more links in the future, and its much safer.</strong></blockquote>
             </li>
             <li>Verify your account
@@ -304,12 +272,12 @@
             <li>Now log in to your account</li>
             <li>Go to <a href="https://manage.fastly.com/home">https://manage.fastly.com/home</a></li>
             <li>On the left hand side bar, click on CDN</li>
-            <li>On the right top corner, click “Create service”</li>
-            <li>For the service name, it doesn’t matter put anything.</li>
+            <li>On the right top corner, click "Create service"</li>
+            <li>For the service name, it doesn't matter put anything.</li>
             <li>For the domain, put some text followed by .global.ssl.fastly.net (unless you own another domain)
                 <blockquote>For example, proxysite.global.ssl.fastly.net (be creative, some domains might be taken already)</blockquote>
             </li>
-            <li>For the origin (host), put a link to an unblocker site. It doesn’t have to be unblocked, but it has to be functional and reliable. <strong>Don't put a link with a path, like example.com/page.</strong>
+            <li>For the origin (host), put a link to an unblocker site. It doesn't have to be unblocked, but it has to be functional and reliable. <strong>Don't put a link with a path, like example.com/page.</strong>
                 <blockquote>For example, for Svzy Central I used <code>byod.szvy.website/</code><br>
                 If you want an astroid link, use <code>https://astroid.gg/</code><br>
                 For Rammerhead, use <code>https://browser.rammerhead.org/</code><br>
@@ -327,10 +295,10 @@
         <p><strong>Troubleshooting with Fastly:</strong><br>
         If your link doesn't work, try these steps.</p>
         <ul>
-            <li>Go to edit configuration &gt; clone version, going to settings and setting the fallback ttl to 0. (you should already have done this)</li>
+            <li>Go to edit configuration > clone version, going to settings and setting the fallback ttl to 0. (you should already have done this)</li>
             <li>Next, scroll down and make a cache setting and setting the ttl to 0 and stale ttl to 0. (name doesn't matter)</li>
             <li>After making the changes, press activate.</li>
-            <li>Then, go to service summary and purge &gt; purge all.</li>
+            <li>Then, go to service summary and purge > purge all.</li>
         </ul>
 
         <h3 id="make-links-with-vercel">Make links with Vercel</h3>
