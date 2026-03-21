@@ -1,24 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9904590475432919"
-     crossorigin="anonymous"></script>
+
     <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
     <link rel="preconnect" href="https://cdn.tailwindcss.com" crossorigin>
     <link rel="dns-prefetch" href="https://cloud.umami.is">
-    <link rel="dns-prefetch" href="https://gizokraijaw.net">
-    <link rel="dns-prefetch" href="https://www.highperformanceformat.com">
-    <link rel="dns-prefetch" href="https://pl28769747.effectivegatecpm.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
 
     <link rel="preload" as="image" href="favicon.png">
 
     <script defer src="https://cloud.umami.is/script.js" data-website-id="08c66f86-eeed-4cda-9d98-d9ecb5756bf1"></script>
-    <script>
-        window.ezstandalone = window.ezstandalone || {};
-        ezstandalone.cmd = ezstandalone.cmd || [];
-    </script>
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-XHVZ8F3RHP"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
@@ -27,13 +20,8 @@
       gtag('config', 'G-XHVZ8F3RHP');
     </script>
 
-    <script>
-        if (localStorage.getItem('adsDisabled') === 'true') {
-            var style = document.createElement('style');
-            style.innerHTML = '.side-ad-left, .side-ad-right, .ad-banner-container { display: none !important; pointer-events: none; }';
-            document.head.appendChild(style);
-        }
-    </script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9904590475432919"
+     crossorigin="anonymous"></script>
 
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -195,14 +183,6 @@
             transform: translateX(120%);
         }
 
-        /* Side Banner Styling */
-        .side-ad-left { position: fixed; left: 20px; top: 150px; z-index: 50; }
-        .side-ad-right { position: fixed; right: 20px; top: 150px; z-index: 50; }
-
-        @media (max-width: 1400px) {
-            .side-ad-left, .side-ad-right { display: none; }
-        }
-
         #cookieBanner {
             transition: opacity 0.3s ease;
         }
@@ -226,15 +206,6 @@
     </svg>
     <div id="loaderPercent">0%</div>
     <div id="loaderLabel">Initializing...</div>
-    
-    <div id="slowLoadPrompt" class="hidden mt-8 text-center glass p-6 rounded-2xl border-purple-500/30 mx-4 max-w-sm">
-        <h3 class="font-bold text-lg mb-2 text-white">Taking a while?</h3>
-        <p class="text-sm text-slate-300 mb-4">You seem to be on a slow connection. Do you want to turn off ads to speed things up? You can change this at any time. (On the bottom of the homepage)</p>
-        <div class="flex gap-3 justify-center">
-            <button id="turnOffAdsBtn" class="flex-1 py-2 bg-purple-500 text-white text-sm font-bold rounded-xl hover:bg-purple-600 transition-colors">Turn Off Ads</button>
-            <button id="keepAdsBtn" class="flex-1 py-2 glass text-white text-sm font-bold rounded-xl hover:bg-white/10 transition-colors">Keep Ads</button>
-        </div>
-    </div>
 </div>
 
 <script>
@@ -243,32 +214,9 @@
     var percentEl = document.getElementById('loaderPercent');
     var labelEl = document.getElementById('loaderLabel');
     var loader = document.getElementById('loader');
-    var promptEl = document.getElementById('slowLoadPrompt');
     var circumference = 2 * Math.PI * 54;
     var progress = 0;
     var loaded = false;
-
-    var slowLoadTimer = setTimeout(function() {
-        if (!loaded) promptEl.classList.remove('hidden');
-    }, 15000);
-
-    document.getElementById('turnOffAdsBtn').addEventListener('click', function() {
-        localStorage.setItem('adsDisabled', 'true');
-        promptEl.classList.add('hidden');
-        
-        // Hide currently loading ones immediately
-        var style = document.createElement('style');
-        style.innerHTML = '.side-ad-left, .side-ad-right, .ad-banner-container, iframe { display: none !important; pointer-events: none; }';
-        document.head.appendChild(style);
-        
-        progress = 100;
-        updateProgress(100);
-    });
-
-    document.getElementById('keepAdsBtn').addEventListener('click', function() {
-        localStorage.setItem('adsDisabled', 'false');
-        promptEl.classList.add('hidden');
-    });
 
     function updateProgress(val) {
         progress = Math.min(val, 100);
@@ -276,11 +224,10 @@
         circle.style.strokeDashoffset = offset;
         percentEl.textContent = Math.round(progress) + '%';
 
-        if (progress < 25) labelEl.textContent = "Loading HTML & CSS...";
-        else if (progress < 50) labelEl.textContent = "Loading Tailwind CSS...";
-        else if (progress < 75) labelEl.textContent = "Loading Adsterra Ads...";
-        else if (progress < 95) labelEl.textContent = "Loading Monetag (Vignette)...";
-        else labelEl.textContent = "Finalizing Vantahub... (If you get sstone here, turn off adverts.";
+        if (progress < 30) labelEl.textContent = "Loading HTML & CSS...";
+        else if (progress < 60) labelEl.textContent = "Loading Tailwind CSS...";
+        else if (progress < 90) labelEl.textContent = "Loading assets...";
+        else labelEl.textContent = "Finalizing Vantahub...";
     }
 
     var interval = setInterval(function() {
@@ -290,7 +237,6 @@
 
     window.addEventListener('load', function() {
         loaded = true;
-        clearTimeout(slowLoadTimer);
         clearInterval(interval);
         var finalInterval = setInterval(function() {
             if (progress < 100) {
@@ -301,39 +247,13 @@
                     loader.classList.add('fade-out');
                     setTimeout(function() {
                         loader.style.display = 'none';
-                        if (localStorage.getItem('adsDisabled') !== 'true') loadVignetteAd();
                     }, 600);
                 }, 250);
             }
         }, 25);
     });
-
-    function loadVignetteAd() {
-        (function(s){
-            s.dataset.zone='10682623';
-            s.src='https://gizokraijaw.net/vignette.min.js';
-        })([document.documentElement, document.body].filter(Boolean).pop().appendChild(document.createElement('script')));
-    }
 })();
 </script>
-
-<div class="side-ad-left">
-    <script>
-    if (localStorage.getItem('adsDisabled') !== 'true') {
-        document.write('<scr' + 'ipt>atOptions = { "key" : "10c042386b4b3f200d24d06119e29923", "format" : "iframe", "height" : 600, "width" : 160, "params" : {} };</scr' + 'ipt>');
-        document.write('<scr' + 'ipt src="https://www.highperformanceformat.com/10c042386b4b3f200d24d06119e29923/invoke.js"></scr' + 'ipt>');
-    }
-    </script>
-</div>
-
-<div class="side-ad-right">
-    <script>
-    if (localStorage.getItem('adsDisabled') !== 'true') {
-        document.write('<scr' + 'ipt>atOptions = { "key" : "10c042386b4b3f200d24d06119e29923", "format" : "iframe", "height" : 600, "width" : 160, "params" : {} };</scr' + 'ipt>');
-        document.write('<scr' + 'ipt src="https://www.highperformanceformat.com/10c042386b4b3f200d24d06119e29923/invoke.js"></scr' + 'ipt>');
-    }
-    </script>
-</div>
 
 <script>
 (function createParticles(){
@@ -384,15 +304,6 @@
 </section>
 
 <section id="gαmes" class="py-32 reveal">
-  
-  <div class="ad-banner-container">
-    <script>
-    if (localStorage.getItem('adsDisabled') !== 'true') {
-        document.write('<scr' + 'ipt async="async" data-cfasync="false" src="https://pl28769747.effectivegatecpm.com/615e7b34eeebdb5713015d4e07e30b63/invoke.js"></scr' + 'ipt>');
-    }
-    </script>
-    <div id="container-615e7b34eeebdb5713015d4e07e30b63"></div>
-  </div>
 
   <h3 class="text-center text-sm font-black uppercase tracking-[0.4em] text-slate-400 mb-20 mt-8">All Sites</h3>
 
@@ -452,27 +363,9 @@
   </div>
 </section>
 
-<div class="flex justify-center w-full py-8 overflow-hidden ad-banner-container">
-  <script>
-  if (localStorage.getItem('adsDisabled') !== 'true') {
-      document.write('<scr' + 'ipt>atOptions = { "key" : "c1eb76989faded9c6cec9318c718dee2", "format" : "iframe", "height" : 90, "width" : 728, "params" : {} };</scr' + 'ipt>');
-      document.write('<scr' + 'ipt src="https://www.highperformanceformat.com/c1eb76989faded9c6cec9318c718dee2/invoke.js"></scr' + 'ipt>');
-  }
-  </script>
-</div>
-
 <section class="py-16 reveal">
 <div class="max-w-4xl mx-auto">
 <h3 class="text-center text-sm font-black uppercase tracking-[0.4em] text-slate-400 mb-16">FAQ</h3>
-
-<div class="flex justify-center mb-12 ad-banner-container">
-  <script>
-  if (localStorage.getItem('adsDisabled') !== 'true') {
-      document.write('<scr' + 'ipt async="async" data-cfasync="false" src="https://pl28769747.effectivegatecpm.com/615e7b34eeebdb5713015d4e07e30b63/invoke.js"></scr' + 'ipt>');
-  }
-  </script>
-  <div id="container-615e7b34eeebdb5713015d4e07e30b63-faq"></div>
-</div>
 
 <div class="grid gap-4">
 <div class="glass p-6 rounded-2xl cursor-pointer faq-item group">
@@ -492,7 +385,7 @@
 
 <div class="glass p-6 rounded-2xl cursor-pointer faq-item group">
 <div class="flex justify-between items-center"><h4 class="text-lg font-black group-hover:text-purple-400 transition-colors">Why are there adverts?</h4><span class="text-slate-400">+</span></div>
-<p class="text-slate-400 mt-4 hidden">Adverts help cover hosting costs and domain fees. You are free to turn them off in your Ad Settings below, or use ad-blockers.</p>
+<p class="text-slate-400 mt-4 hidden">Adverts help cover hosting costs and domain fees. You are free to use ad-blockers if you prefer.</p>
 </div>
 
 <div class="glass p-6 rounded-2xl cursor-pointer faq-item group">
@@ -665,20 +558,10 @@
   </div>
 </section>
 
-<div class="flex justify-center w-full py-4 overflow-hidden ad-banner-container">
-  <script>
-  if (localStorage.getItem('adsDisabled') !== 'true') {
-      document.write('<scr' + 'ipt>atOptions = { "key" : "c1eb76989faded9c6cec9318c718dee2", "format" : "iframe", "height" : 90, "width" : 728, "params" : {} };</scr' + 'ipt>');
-      document.write('<scr' + 'ipt src="https://www.highperformanceformat.com/c1eb76989faded9c6cec9318c718dee2/invoke.js"></scr' + 'ipt>');
-  }
-  </script>
-</div>
-
 </main>
 
 <footer class="py-20 text-center opacity-50 flex flex-col items-center gap-2">
   <p class="text-xs font-mono uppercase tracking-widest">© 2026 Vantahub, ahw101</p>
-  <button onclick="toggleAds()" class="text-xs font-mono uppercase tracking-widest underline hover:text-purple-400 transition-colors mt-2">Toggle Ad Settings</button>
 </footer>
 
 <div id="cookieBanner" class="fixed bottom-6 left-6 right-6 md:left-auto md:right-8 md:w-96 glass p-6 rounded-3xl z-[100] border-purple-500/30">
@@ -723,19 +606,6 @@ function closeCookie() {
     setTimeout(() => {
         document.getElementById('cookieBanner').style.display = 'none';
     }, 300);
-}
-
-// Global Ad Toggle function for Footer
-function toggleAds() {
-    const current = localStorage.getItem('adsDisabled');
-    if (current === 'true') {
-        localStorage.setItem('adsDisabled', 'false');
-        alert("Ads have been turned back ON. Press OK to continue (btw thx!)");
-    } else {
-        localStorage.setItem('adsDisabled', 'true');
-        alert("Ads have been turned OFF. Press OK to continue");
-    }
-    location.reload();
 }
 </script>
 
